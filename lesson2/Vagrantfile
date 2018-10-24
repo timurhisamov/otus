@@ -2,30 +2,27 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp-vagrant/centos-7.4"
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "/Users/timurkhisamov/GITDIR/otus/lesson1", "/vagrant"
-  config.vm.define "centosl2" do |centos|
-        centos.vm.hostname = "centosl2"
-        config.vm.box_check_update = false
-        config.vm.provider "virtualbox" do |vb|
-                vb.gui = false
-                vb.memory = "256"
-      		[1,2,3,4,5].each do |disk|
-        		diskname = File.expand_path("./RaidDisk#{disk}.vdi")
-        		unless File.exist?(diskname)
-				vb.customize ['createhd', '--filename', diskname, '--size', 256]
-        		end
+	config.vm.box = "hashicorp-vagrant/centos-7.4"
+	config.vm.synced_folder ".", "/vagrant", disabled: true
+	config.vm.synced_folder "/Users/timurkhisamov/GITDIR/otus/lesson2", "/vagrant"
+	#config.vm.synced_folder "/home/timurhisamov/GITDIR/otus/lesson2", "/vagrant"
+	config.vm.define "centosl2" do |centos|
+		centos.vm.hostname = "centosl2"
+		config.vm.box_check_update = false
+		config.vm.provider "virtualbox" do |vb|
+			vb.gui = false
+			vb.memory = "256"
+			[1,2,3,4,5].each do |disk|
+				diskname = File.expand_path("./RaidDisk#{disk}.vdi")
+				unless File.exist?(diskname)
+					vb.customize ['createhd', '--filename', diskname, '--size', 256]
+				end
 			vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', disk, '--device', 0, '--type', 'hdd', '--medium', diskname]
-      		end
-               # vb.memory = "2404"
-               # vb.cpus = "4"
-                vb.name = "centosl2"
-       	config.vm.provision "shell", inline: <<-SHELL
-		mkdir -p ~root/.ssh
-              	cp ~vagrant/.ssh/auth* ~root/.ssh
-      		yum install -y mdadm smartmontools hdparm gdisk
-  	SHELL
-	end
-  end
+			end
+			# vb.memory = "2404"
+			# vb.cpus = "4"
+			vb.name = "centosl2"
+		end
+end
+config.vm.provision "shell", path: "./vagrant.provision.sh"
 end
