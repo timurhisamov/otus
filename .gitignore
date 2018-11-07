@@ -1,7 +1,4 @@
 .vagrant/*
 *.vdi
 proxy
-<<<<<<< HEAD
-=======
 .DS_Store
->>>>>>> l4
