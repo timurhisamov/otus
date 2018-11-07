@@ -1,0 +1,4 @@
+.vagrant/*
+*.vdi
+proxy
+.DS_Store
