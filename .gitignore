@@ -1,4 +1,5 @@
-.vagrant/*
+*/.vagrant/*
 *.vdi
 proxy
 .DS_Store
+*.swp
