@@ -1,0 +1,10 @@
+[root@centosl7 pam.d]# vim su
+[root@centosl7 pam.d]# su user1
+[user1@centosl7 pam.d]$ su vagrant
+Password:
+[vagrant@centosl7 pam.d]$ su
+Password:
+su: Permission denied
+[vagrant@centosl7 pam.d]$ exit
+exit
+[user1@centosl7 pam.d]$
