@@ -1,0 +1,8 @@
+[Unit]
+Description=Spawn FastCGI socket
+
+[Socket]
+ListenStream=/var/run/php-fcgi.sock
+
+[Install]
+WantedBy=sockets.target

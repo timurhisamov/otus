@@ -1,0 +1,14 @@
+[Unit]
+Description=grep keyword service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/vagrant/keyword_start.sh
+ExecStop=/vagrant/keyword_stop.sh
+
+[Install]
+WantedBy=multi-user.target
