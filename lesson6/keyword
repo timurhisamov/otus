@@ -1,0 +1,2 @@
+FILE=/var/log/audit/audit.log
+WORD=USER_ROLE_CHANGE
