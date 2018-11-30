@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+	config.vm.box = "hashicorp-vagrant/centos-7.4"
+	config.vm.box_check_update = false
+	if Vagrant.has_plugin?("vagrant-proxyconf")
+		config.proxy.http     = ENV['http_proxy']
+		config.proxy.https    = ENV['https_proxy']
+		config.proxy.no_proxy = ENV['no_proxy']
+	end
+	config.vm.define "ipaserv" do |server|
+		server.vm.hostname = "ipaserv.otus.test"
+		server.vm.network :private_network, ip: "192.168.50.4",
+		virtualbox__intnet: "otus"
+			server.vm.provider "virtualbox" do |vb|
+			vb.gui = false
+			vb.memory = "256"
+			vb.name = "ipaserv"
+		end
+	end
+	config.vm.define "ipacl" do |client|
+		client.vm.hostname = "ipacl.otus.test"
+		client.vm.network :private_network, ip: "192.168.50.5",
+		virtualbox__intnet: "otus"
+			client.vm.provider "virtualbox" do |vb|
+			vb.gui = false
+			vb.memory = "256"
+			vb.name = "ipacl"
+		end
+	end
+end
