@@ -1,0 +1,27 @@
+---
+- name: Install Utils
+  hosts: staging-servers
+  become: true
+  tasks:
+    - name: Install Epel Repo
+      yum:
+        name: 
+          - epel-release
+        state: present
+      tags:
+        - epel-release
+
+    - name: Install Utils
+      yum:
+        name: 
+          - htop
+          - atop
+          - sysstat
+          - iotop
+          - procps-ng
+        state: present
+      tags:
+        - utils-setup
+    
+
+...
