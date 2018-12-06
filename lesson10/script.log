@@ -1,0 +1,1049 @@
+  Installing : istack-commons-2.17-4.el7.noarch                                                                                                                                                     204/259
+  Installing : javamail-1.4.6-8.el7.noarch                                                                                                                                                          205/259
+  Installing : log4j-1.2.17-16.el7_4.noarch                                                                                                                                                         206/259
+  Installing : avalon-logkit-2.1-14.el7.noarch                                                                                                                                                      207/259
+  Installing : apache-commons-logging-1.1.2-7.el7.noarch                                                                                                                                            208/259
+  Installing : avalon-framework-4.3-10.el7.noarch                                                                                                                                                   209/259
+  Installing : 1:jakarta-commons-httpclient-3.1-16.el7_0.noarch                                                                                                                                     210/259
+  Installing : glassfish-dtd-parser-1.2-0.8.20120120svn.el7.noarch                                                                                                                                  211/259
+  Installing : joda-convert-1.3-5.el7.noarch                                                                                                                                                        212/259
+  Installing : joda-time-2.2-3.tzdata2013c.el7.noarch                                                                                                                                               213/259
+  Installing : glassfish-jaxb-api-2.2.7-4.el7.noarch                                                                                                                                                214/259
+  Installing : geronimo-jta-1.1.1-17.el7.noarch                                                                                                                                                     215/259
+  Installing : apache-commons-dbcp-1.4-17.el7.noarch                                                                                                                                                216/259
+  Installing : tomcat-lib-7.0.76-8.el7_5.noarch                                                                                                                                                     217/259
+  Installing : antlr-tool-2.7.7-30.el7.noarch                                                                                                                                                       218/259
+  Installing : ws-jaxme-0.5.2-10.el7.noarch                                                                                                                                                         219/259
+  Installing : jdom-1.1.3-6.el7.noarch                                                                                                                                                              220/259
+  Installing : jaxen-1.1.3-11.el7.noarch                                                                                                                                                            221/259
+  Installing : dom4j-1.6.1-20.el7.noarch                                                                                                                                                            222/259
+  Installing : velocity-1.7-10.el7.noarch                                                                                                                                                           223/259
+  Installing : args4j-2.0.16-13.el7.noarch                                                                                                                                                          224/259
+  Installing : txw2-20110809-8.el7.noarch                                                                                                                                                           225/259
+  Installing : glassfish-fastinfoset-1.2.12-9.el7.noarch                                                                                                                                            226/259
+  Installing : httpcomponents-core-4.2.4-6.el7.noarch                                                                                                                                               227/259
+  Installing : httpcomponents-client-4.2.5-5.el7_0.noarch                                                                                                                                           228/259
+  Installing : jboss-annotations-1.1-api-1.0.1-0.6.20120212git76e1a2.el7.noarch                                                                                                                     229/259
+  Installing : resteasy-base-jaxrs-3.0.6-4.el7.noarch                                                                                                                                               230/259
+  Installing : resteasy-base-client-3.0.6-4.el7.noarch                                                                                                                                              231/259
+  Installing : apache-commons-cli-1.2-13.el7.noarch                                                                                                                                                 232/259
+  Installing : cal10n-0.7.7-4.el7.noarch                                                                                                                                                            233/259
+  Installing : slf4j-1.7.4-4.el7_4.noarch                                                                                                                                                           234/259
+  Installing : stax-ex-1.7.1-6.el7.noarch                                                                                                                                                           235/259
+  Installing : glassfish-jaxb-2.2.5-6.el7.noarch                                                                                                                                                    236/259
+  Installing : resteasy-base-jaxb-provider-3.0.6-4.el7.noarch                                                                                                                                       237/259
+  Installing : resteasy-base-atom-provider-3.0.6-4.el7.noarch                                                                                                                                       238/259
+  Installing : jsr-311-1.1.1-6.el7.noarch                                                                                                                                                           239/259
+  Installing : jackson-1.9.4-7.el7.noarch                                                                                                                                                           240/259
+  Installing : resteasy-base-jackson-provider-3.0.6-4.el7.noarch                                                                                                                                    241/259
+  Installing : pki-base-java-10.5.1-15.el7_5.noarch                                                                                                                                                 242/259
+  Installing : pki-tools-10.5.1-15.el7_5.x86_64                                                                                                                                                     243/259
+  Installing : apache-commons-daemon-1.0.13-7.el7.x86_64                                                                                                                                            244/259
+  Installing : tomcat-7.0.76-8.el7_5.noarch                                                                                                                                                         245/259
+  Installing : tomcatjss-7.2.1-7.el7_5.noarch                                                                                                                                                       246/259
+  Installing : pki-server-10.5.1-15.el7_5.noarch                                                                                                                                                    247/259
+  Installing : pki-ca-10.5.1-15.el7_5.noarch                                                                                                                                                        248/259
+  Installing : pki-kra-10.5.1-15.el7_5.noarch                                                                                                                                                       249/259
+  Installing : words-3.0-22.el7.noarch                                                                                                                                                              250/259
+  Installing : krb5-server-1.15.1-19.el7.x86_64                                                                                                                                                     251/259
+  Installing : hesiod-3.2.1-3.el7.x86_64                                                                                                                                                            252/259
+  Installing : 1:autofs-5.0.7-83.el7.x86_64                                                                                                                                                         253/259
+  Installing : ipa-client-4.5.4-10.el7.centos.4.4.x86_64                                                                                                                                            254/259
+  Installing : cyrus-sasl-md5-2.1.26-23.el7.x86_64                                                                                                                                                  255/259
+  Installing : 389-ds-base-1.3.7.5-28.el7_5.x86_64                                                                                                                                                  256/259
+  Installing : slapi-nis-0.56.0-8.el7.x86_64                                                                                                                                                        257/259
+  Installing : ipa-server-4.5.4-10.el7.centos.4.4.x86_64                                                                                                                                            258/259
+  Installing : ipa-server-dns-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                        259/259
+  Verifying  : libXext-1.3.3-3.el7.x86_64                                                                                                                                                             1/259
+  Verifying  : libtevent-0.9.33-2.el7.x86_64                                                                                                                                                          2/259
+  Verifying  : cyrus-sasl-md5-2.1.26-23.el7.x86_64                                                                                                                                                    3/259
+  Verifying  : libsss_nss_idmap-1.16.0-19.el7_5.8.x86_64                                                                                                                                              4/259
+  Verifying  : jackson-1.9.4-7.el7.noarch                                                                                                                                                             5/259
+  Verifying  : avalon-logkit-2.1-14.el7.noarch                                                                                                                                                        6/259
+  Verifying  : libXrender-0.9.10-1.el7.x86_64                                                                                                                                                         7/259
+  Verifying  : tomcat-servlet-3.0-api-7.0.76-8.el7_5.noarch                                                                                                                                           8/259
+  Verifying  : libXi-1.7.9-1.el7.x86_64                                                                                                                                                               9/259
+  Verifying  : 1:ecj-4.5.2-3.el7.x86_64                                                                                                                                                              10/259
+  Verifying  : hesiod-3.2.1-3.el7.x86_64                                                                                                                                                             11/259
+  Verifying  : python-lxml-3.2.1-4.el7.x86_64                                                                                                                                                        12/259
+  Verifying  : words-3.0-22.el7.noarch                                                                                                                                                               13/259
+  Verifying  : 2:libpng-1.5.13-7.el7_2.x86_64                                                                                                                                                        14/259
+  Verifying  : junit-4.11-8.el7.noarch                                                                                                                                                               15/259
+  Verifying  : samba-common-4.7.1-9.el7_5.noarch                                                                                                                                                     16/259
+  Verifying  : apache-commons-codec-1.8-7.el7.noarch                                                                                                                                                 17/259
+  Verifying  : tzdata-java-2018f-2.el7.noarch                                                                                                                                                        18/259
+  Verifying  : stax2-api-3.1.1-10.el7.noarch                                                                                                                                                         19/259
+  Verifying  : python-javapackages-3.4.1-11.el7.noarch                                                                                                                                               20/259
+  Verifying  : jaxen-1.1.3-11.el7.noarch                                                                                                                                                             21/259
+  Verifying  : libXcomposite-0.4.4-4.1.el7.x86_64                                                                                                                                                    22/259
+  Verifying  : libXtst-1.2.3-1.el7.x86_64                                                                                                                                                            23/259
+  Verifying  : libsss_certmap-1.16.0-19.el7_5.8.x86_64                                                                                                                                               24/259
+  Verifying  : 389-ds-base-1.3.7.5-28.el7_5.x86_64                                                                                                                                                   25/259
+  Verifying  : nuxwdog-client-java-1.0.3-7.el7.x86_64                                                                                                                                                26/259
+  Verifying  : libitm-4.8.5-28.el7_5.1.x86_64                                                                                                                                                        27/259
+  Verifying  : lksctp-tools-1.0.17-2.el7.x86_64                                                                                                                                                      28/259
+  Verifying  : libsss_sudo-1.16.0-19.el7_5.8.x86_64                                                                                                                                                  29/259
+  Verifying  : fontawesome-fonts-4.1.0-1.el7.noarch                                                                                                                                                  30/259
+  Verifying  : mod_session-2.4.6-80.el7.centos.1.x86_64                                                                                                                                              31/259
+  Verifying  : python-pycparser-2.14-1.el7.noarch                                                                                                                                                    32/259
+  Verifying  : libxcb-1.12-1.el7.x86_64                                                                                                                                                              33/259
+  Verifying  : perl-Data-Dumper-2.145-3.el7.x86_64                                                                                                                                                   34/259
+  Verifying  : tomcat-lib-7.0.76-8.el7_5.noarch                                                                                                                                                      35/259
+  Verifying  : apr-util-1.5.2-6.el7.x86_64                                                                                                                                                           36/259
+  Verifying  : tomcat-7.0.76-8.el7_5.noarch                                                                                                                                                          37/259
+  Verifying  : sssd-ldap-1.16.0-19.el7_5.8.x86_64                                                                                                                                                    38/259
+  Verifying  : regexp-1.5-13.el7.noarch                                                                                                                                                              39/259
+  Verifying  : certmonger-0.78.4-3.el7_5.1.x86_64                                                                                                                                                    40/259
+  Verifying  : easymock2-2.5.2-12.el7.noarch                                                                                                                                                         41/259
+  Verifying  : 1:perl-Package-Constants-0.02-292.el7.noarch                                                                                                                                          42/259
+  Verifying  : apr-1.4.8-3.el7_4.1.x86_64                                                                                                                                                            43/259
+  Verifying  : 1:autofs-5.0.7-83.el7.x86_64                                                                                                                                                          44/259
+  Verifying  : ipa-client-common-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                      45/259
+  Verifying  : apache-commons-logging-1.1.2-7.el7.noarch                                                                                                                                             46/259
+  Verifying  : xpp3-1.1.3.8-11.el7.noarch                                                                                                                                                            47/259
+  Verifying  : ws-jaxme-0.5.2-10.el7.noarch                                                                                                                                                          48/259
+  Verifying  : libXau-1.0.8-2.1.el7.x86_64                                                                                                                                                           49/259
+  Verifying  : hamcrest-1.3-6.el7.noarch                                                                                                                                                             50/259
+  Verifying  : libicu-50.1.2-15.el7.x86_64                                                                                                                                                           51/259
+  Verifying  : apache-commons-pool-1.6-9.el7.noarch                                                                                                                                                  52/259
+  Verifying  : pki-base-10.5.1-15.el7_5.noarch                                                                                                                                                       53/259
+  Verifying  : gperftools-libs-2.6.1-1.el7.x86_64                                                                                                                                                    54/259
+  Verifying  : slf4j-1.7.4-4.el7_4.noarch                                                                                                                                                            55/259
+  Verifying  : 1:hsqldb-1.8.1.3-14.el7.noarch                                                                                                                                                        56/259
+  Verifying  : 32:bind-9.9.4-61.el7_5.1.x86_64                                                                                                                                                       57/259
+  Verifying  : libkadm5-1.15.1-19.el7.x86_64                                                                                                                                                         58/259
+  Verifying  : istack-commons-2.17-4.el7.noarch                                                                                                                                                      59/259
+  Verifying  : glassfish-jaxb-2.2.5-6.el7.noarch                                                                                                                                                     60/259
+  Verifying  : 1:xorg-x11-font-utils-7.5-20.el7.x86_64                                                                                                                                               61/259
+  Verifying  : python-augeas-0.5.0-2.el7.noarch                                                                                                                                                      62/259
+  Verifying  : libX11-1.6.5-1.el7.x86_64                                                                                                                                                             63/259
+  Verifying  : python-sssdconfig-1.16.0-19.el7_5.8.noarch                                                                                                                                            64/259
+  Verifying  : libsss_autofs-1.16.0-19.el7_5.8.x86_64                                                                                                                                                65/259
+  Verifying  : libICE-1.0.9-9.el7.x86_64                                                                                                                                                             66/259
+  Verifying  : libipa_hbac-1.16.0-19.el7_5.8.x86_64                                                                                                                                                  67/259
+  Verifying  : velocity-1.7-10.el7.noarch                                                                                                                                                            68/259
+  Verifying  : autogen-libopts-5.18-5.el7.x86_64                                                                                                                                                     69/259
+  Verifying  : libXfont-1.5.2-1.el7.x86_64                                                                                                                                                           70/259
+  Verifying  : slapi-nis-0.56.0-8.el7.x86_64                                                                                                                                                         71/259
+  Verifying  : javamail-1.4.6-8.el7.noarch                                                                                                                                                           72/259
+  Verifying  : bcel-5.2-18.el7.noarch                                                                                                                                                                73/259
+  Verifying  : python-qrcode-core-5.0.1-1.el7.noarch                                                                                                                                                 74/259
+  Verifying  : perl-Mozilla-LDAP-1.5.3-12.el7.x86_64                                                                                                                                                 75/259
+  Verifying  : sssd-common-pac-1.16.0-19.el7_5.8.x86_64                                                                                                                                              76/259
+  Verifying  : xml-commons-resolver-1.2-15.el7.noarch                                                                                                                                                77/259
+  Verifying  : pki-ca-10.5.1-15.el7_5.noarch                                                                                                                                                         78/259
+  Verifying  : jdom-1.1.3-6.el7.noarch                                                                                                                                                               79/259
+  Verifying  : mod_auth_gssapi-1.5.1-5.el7.x86_64                                                                                                                                                    80/259
+  Verifying  : 1:apache-commons-io-2.4-12.el7.noarch                                                                                                                                                 81/259
+  Verifying  : python-ipaddress-1.0.16-2.el7.noarch                                                                                                                                                  82/259
+  Verifying  : glassfish-dtd-parser-1.2-0.8.20120120svn.el7.noarch                                                                                                                                   83/259
+  Verifying  : perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64                                                                                                                                            84/259
+  Verifying  : joda-convert-1.3-5.el7.noarch                                                                                                                                                         85/259
+  Verifying  : bea-stax-1.2.0-9.el7.noarch                                                                                                                                                           86/259
+  Verifying  : resteasy-base-atom-provider-3.0.6-4.el7.noarch                                                                                                                                        87/259
+  Verifying  : opendnssec-1.4.7-4.el7.x86_64                                                                                                                                                         88/259
+  Verifying  : mod_wsgi-3.4-13.el7_5.1.x86_64                                                                                                                                                        89/259
+  Verifying  : ipa-server-4.5.4-10.el7.centos.4.4.x86_64                                                                                                                                             90/259
+  Verifying  : giflib-4.1.6-9.el7.x86_64                                                                                                                                                             91/259
+  Verifying  : 1:java-1.8.0-openjdk-headless-1.8.0.191.b12-0.el7_5.x86_64                                                                                                                            92/259
+  Verifying  : python-kdcproxy-0.3.2-1.el7.noarch                                                                                                                                                    93/259
+  Verifying  : cyrus-sasl-plain-2.1.26-23.el7.x86_64                                                                                                                                                 94/259
+  Verifying  : xsom-0-10.20110809svn.el7.noarch                                                                                                                                                      95/259
+  Verifying  : python-nss-0.16.0-3.el7.x86_64                                                                                                                                                        96/259
+  Verifying  : psmisc-22.20-15.el7.x86_64                                                                                                                                                            97/259
+  Verifying  : python-urllib3-1.10.2-5.el7.noarch                                                                                                                                                    98/259
+  Verifying  : glassfish-jaxb-api-2.2.7-4.el7.noarch                                                                                                                                                 99/259
+  Verifying  : ipa-server-dns-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                        100/259
+  Verifying  : python-idna-2.4-1.el7.noarch                                                                                                                                                         101/259
+  Verifying  : libsss_idmap-1.16.0-19.el7_5.8.x86_64                                                                                                                                                102/259
+  Verifying  : geronimo-jms-1.1.1-19.el7.noarch                                                                                                                                                     103/259
+  Verifying  : 32:bind-pkcs11-utils-9.9.4-61.el7_5.1.x86_64                                                                                                                                         104/259
+  Verifying  : mod_nss-1.0.14-12.el7.x86_64                                                                                                                                                         105/259
+  Verifying  : opencryptoki-3.7.0-1.el7.x86_64                                                                                                                                                      106/259
+  Verifying  : sssd-krb5-common-1.16.0-19.el7_5.8.x86_64                                                                                                                                            107/259
+  Verifying  : python-jwcrypto-0.4.2-1.el7.noarch                                                                                                                                                   108/259
+  Verifying  : python-ldap-2.4.15-2.el7.x86_64                                                                                                                                                      109/259
+  Verifying  : python-cffi-1.6.0-5.el7.x86_64                                                                                                                                                       110/259
+  Verifying  : 32:bind-pkcs11-libs-9.9.4-61.el7_5.1.x86_64                                                                                                                                          111/259
+  Verifying  : python2-pyasn1-modules-0.1.9-7.el7.noarch                                                                                                                                            112/259
+  Verifying  : perl-DB_File-1.830-6.el7.x86_64                                                                                                                                                      113/259
+  Verifying  : python-netaddr-0.7.5-9.el7.noarch                                                                                                                                                    114/259
+  Verifying  : sssd-ipa-1.16.0-19.el7_5.8.x86_64                                                                                                                                                    115/259
+  Verifying  : python2-cryptography-1.7.2-2.el7.x86_64                                                                                                                                              116/259
+  Verifying  : resteasy-base-client-3.0.6-4.el7.noarch                                                                                                                                              117/259
+  Verifying  : fontconfig-2.10.95-11.el7.x86_64                                                                                                                                                     118/259
+  Verifying  : python-libipa_hbac-1.16.0-19.el7_5.8.x86_64                                                                                                                                          119/259
+  Verifying  : jvnet-parent-4-2.el7.noarch                                                                                                                                                          120/259
+  Verifying  : geronimo-jta-1.1.1-17.el7.noarch                                                                                                                                                     121/259
+  Verifying  : antlr-tool-2.7.7-30.el7.noarch                                                                                                                                                       122/259
+  Verifying  : python2-ipaclient-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                     123/259
+  Verifying  : ldapjdk-4.19-5.el7.noarch                                                                                                                                                            124/259
+  Verifying  : relaxngDatatype-1.0-11.el7.noarch                                                                                                                                                    125/259
+  Verifying  : opencryptoki-swtok-3.7.0-1.el7.x86_64                                                                                                                                                126/259
+  Verifying  : alsa-lib-1.1.4.1-2.el7.x86_64                                                                                                                                                        127/259
+  Verifying  : httpcomponents-client-4.2.5-5.el7_0.noarch                                                                                                                                           128/259
+  Verifying  : python-backports-ssl_match_hostname-3.5.0.1-1.el7.noarch                                                                                                                             129/259
+  Verifying  : args4j-2.0.16-13.el7.noarch                                                                                                                                                          130/259
+  Verifying  : libjpeg-turbo-1.2.90-5.el7.x86_64                                                                                                                                                    131/259
+  Verifying  : opencryptoki-libs-3.7.0-1.el7.x86_64                                                                                                                                                 132/259
+  Verifying  : mailcap-2.1.41-2.el7.noarch                                                                                                                                                          133/259
+  Verifying  : javapackages-tools-3.4.1-11.el7.noarch                                                                                                                                               134/259
+  Verifying  : http-parser-2.7.1-5.el7_4.x86_64                                                                                                                                                     135/259
+  Verifying  : httpd-2.4.6-80.el7.centos.1.x86_64                                                                                                                                                   136/259
+  Verifying  : libsmbclient-4.7.1-9.el7_5.x86_64                                                                                                                                                    137/259
+  Verifying  : pki-kra-10.5.1-15.el7_5.noarch                                                                                                                                                       138/259
+  Verifying  : resteasy-base-jaxb-provider-3.0.6-4.el7.noarch                                                                                                                                       139/259
+  Verifying  : 1:jakarta-commons-httpclient-3.1-16.el7_0.noarch                                                                                                                                     140/259
+  Verifying  : sssd-ad-1.16.0-19.el7_5.8.x86_64                                                                                                                                                     141/259
+  Verifying  : libdhash-0.5.0-29.el7.x86_64                                                                                                                                                         142/259
+  Verifying  : fontpackages-filesystem-1.44-8.el7.noarch                                                                                                                                            143/259
+  Verifying  : ttmkfdir-3.0.9-42.el7.x86_64                                                                                                                                                         144/259
+  Verifying  : sssd-1.16.0-19.el7_5.8.x86_64                                                                                                                                                        145/259
+  Verifying  : log4j-1.2.17-16.el7_4.noarch                                                                                                                                                         146/259
+  Verifying  : avahi-libs-0.6.31-19.el7.x86_64                                                                                                                                                      147/259
+  Verifying  : pyOpenSSL-0.13.1-3.el7.x86_64                                                                                                                                                        148/259
+  Verifying  : apache-commons-lang-2.6-15.el7.noarch                                                                                                                                                149/259
+  Verifying  : ntp-4.2.6p5-28.el7.centos.x86_64                                                                                                                                                     150/259
+  Verifying  : python-gssapi-1.2.0-3.el7.x86_64                                                                                                                                                     151/259
+  Verifying  : copy-jdk-configs-3.3-10.el7_5.noarch                                                                                                                                                 152/259
+  Verifying  : python-dns-1.12.0-4.20150617git465785f.el7.noarch                                                                                                                                    153/259
+  Verifying  : softhsm-2.1.0-2.el7.x86_64                                                                                                                                                           154/259
+  Verifying  : custodia-0.3.1-4.el7.noarch                                                                                                                                                          155/259
+  Verifying  : pyusb-1.0.0-0.11.b1.el7.noarch                                                                                                                                                       156/259
+  Verifying  : libldb-1.2.2-1.el7.x86_64                                                                                                                                                            157/259
+  Verifying  : jakarta-oro-2.0.8-16.el7.noarch                                                                                                                                                      158/259
+  Verifying  : ipa-common-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                            159/259
+  Verifying  : cyrus-sasl-gssapi-2.1.26-23.el7.x86_64                                                                                                                                               160/259
+  Verifying  : python2-ipaserver-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                     161/259
+  Verifying  : xmlrpc-c-client-1.32.5-1905.svn2451.el7.x86_64                                                                                                                                       162/259
+  Verifying  : c-ares-1.10.0-3.el7.x86_64                                                                                                                                                           163/259
+  Verifying  : samba-client-libs-4.7.1-9.el7_5.x86_64                                                                                                                                               164/259
+  Verifying  : ntpdate-4.2.6p5-28.el7.centos.x86_64                                                                                                                                                 165/259
+  Verifying  : pki-server-10.5.1-15.el7_5.noarch                                                                                                                                                    166/259
+  Verifying  : sssd-common-1.16.0-19.el7_5.8.x86_64                                                                                                                                                 167/259
+  Verifying  : libxslt-1.1.28-5.el7.x86_64                                                                                                                                                          168/259
+  Verifying  : python-netifaces-0.10.4-3.el7.x86_64                                                                                                                                                 169/259
+  Verifying  : xerces-j2-2.11.0-17.el7_0.noarch                                                                                                                                                     170/259
+  Verifying  : libtalloc-2.1.10-1.el7.x86_64                                                                                                                                                        171/259
+  Verifying  : python-sss-murmur-1.16.0-19.el7_5.8.x86_64                                                                                                                                           172/259
+  Verifying  : libwbclient-4.7.1-9.el7_5.x86_64                                                                                                                                                     173/259
+  Verifying  : codemodel-2.6-9.el7.noarch                                                                                                                                                           174/259
+  Verifying  : xalan-j2-2.7.1-23.el7.noarch                                                                                                                                                         175/259
+  Verifying  : apache-commons-collections-3.2.1-22.el7_2.noarch                                                                                                                                     176/259
+  Verifying  : 14:libpcap-1.5.3-11.el7.x86_64                                                                                                                                                       177/259
+  Verifying  : sssd-dbus-1.16.0-19.el7_5.8.x86_64                                                                                                                                                   178/259
+  Verifying  : 1:perl-IO-Zlib-1.10-292.el7.noarch                                                                                                                                                   179/259
+  Verifying  : bind-dyndb-ldap-11.1-4.el7.x86_64                                                                                                                                                    180/259
+  Verifying  : ipa-client-4.5.4-10.el7.centos.4.4.x86_64                                                                                                                                            181/259
+  Verifying  : python-yubico-1.2.3-1.el7.noarch                                                                                                                                                     182/259
+  Verifying  : pki-base-java-10.5.1-15.el7_5.noarch                                                                                                                                                 183/259
+  Verifying  : python2-ipalib-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                        184/259
+  Verifying  : libSM-1.2.2-2.el7.x86_64                                                                                                                                                             185/259
+  Verifying  : ipa-server-common-4.5.4-10.el7.centos.4.4.noarch                                                                                                                                     186/259
+  Verifying  : python-dateutil-1.5-7.el7.noarch                                                                                                                                                     187/259
+  Verifying  : sssd-proxy-1.16.0-19.el7_5.8.x86_64                                                                                                                                                  188/259
+  Verifying  : python-enum34-1.0.4-1.el7.noarch                                                                                                                                                     189/259
+  Verifying  : perl-Archive-Tar-1.92-2.el7.noarch                                                                                                                                                   190/259
+  Verifying  : qdox-1.12.1-10.el7.noarch                                                                                                                                                            191/259
+  Verifying  : oddjob-mkhomedir-0.31.5-4.el7.x86_64                                                                                                                                                 192/259
+  Verifying  : xmlrpc-c-1.32.5-1905.svn2451.el7.x86_64                                                                                                                                              193/259
+  Verifying  : pki-tools-10.5.1-15.el7_5.x86_64                                                                                                                                                     194/259
+  Verifying  : jing-20091111-14.el7.noarch                                                                                                                                                          195/259
+  Verifying  : krb5-pkinit-1.15.1-19.el7.x86_64                                                                                                                                                     196/259
+  Verifying  : sssd-krb5-1.16.0-19.el7_5.8.x86_64                                                                                                                                                   197/259
+  Verifying  : rngom-201103-0.8.20120119svn.el7.noarch                                                                                                                                              198/259
+  Verifying  : tomcat-jsp-2.2-api-7.0.76-8.el7_5.noarch                                                                                                                                             199/259
+  Verifying  : bea-stax-api-1.2.0-9.el7.noarch                                                                                                                                                      200/259
+  Verifying  : systemd-python-219-57.el7_5.3.x86_64                                                                                                                                                 201/259
+  Verifying  : samba-common-libs-4.7.1-9.el7_5.x86_64                                                                                                                                               202/259
+  Verifying  : httpd-tools-2.4.6-80.el7.centos.1.x86_64                                                                                                                                             203/259
+  Verifying  : resteasy-base-jaxrs-3.0.6-4.el7.noarch                                                                                                                                               204/259
+  Verifying  : perl-IO-Compress-2.061-2.el7.noarch                                                                                                                                                  205/259
+  Verifying  : scannotation-1.0.3-0.7.r12.el7.noarch                                                                                                                                                206/259
+  Verifying  : open-sans-fonts-1.10-1.el7.noarch                                                                                                                                                    207/259
+  Verifying  : 1:msv-xsdlib-2013.5.1-7.el7.noarch                                                                                                                                                   208/259
+  Verifying  : perl-NetAddr-IP-4.069-3.el7.x86_64                                                                                                                                                   209/259
+  Verifying  : xml-commons-apis-1.4.01-16.el7.noarch                                                                                                                                                210/259
+  Verifying  : 1:java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64                                                                                                                                    211/259
+  Verifying  : python-setuptools-0.9.8-7.el7.noarch                                                                                                                                                 212/259
+  Verifying  : mod_lookup_identity-1.0.0-1.el7.x86_64                                                                                                                                               213/259
+  Verifying  : oddjob-0.31.5-4.el7.x86_64                                                                                                                                                           214/259
+  Verifying  : tomcat-el-2.2-api-7.0.76-8.el7_5.noarch                                                                                                                                              215/259
+  Verifying  : python-chardet-2.2.1-1.el7_1.noarch                                                                                                                                                  216/259
+  Verifying  : avalon-framework-4.3-10.el7.noarch                                                                                                                                                   217/259
+  Verifying  : svrcore-4.1.3-2.el7.x86_64                                                                                                                                                           218/259
+  Verifying  : jss-4.4.0-13.el7_5.x86_64                                                                                                                                                            219/259
+  Verifying  : glassfish-fastinfoset-1.2.12-9.el7.noarch                                                                                                                                            220/259
+  Verifying  : dom4j-1.6.1-20.el7.noarch                                                                                                                                                            221/259
+  Verifying  : krb5-workstation-1.15.1-19.el7.x86_64                                                                                                                                                222/259
+  Verifying  : 389-ds-base-libs-1.3.7.5-28.el7_5.x86_64                                                                                                                                             223/259
+  Verifying  : python-six-1.9.0-2.el7.noarch                                                                                                                                                        224/259
+  Verifying  : libX11-common-1.6.5-1.el7.noarch                                                                                                                                                     225/259
+  Verifying  : 32:bind-pkcs11-9.9.4-61.el7_5.1.x86_64                                                                                                                                               226/259
+  Verifying  : tomcatjss-7.2.1-7.el7_5.noarch                                                                                                                                                       227/259
+  Verifying  : httpcomponents-core-4.2.4-6.el7.noarch                                                                                                                                               228/259
+  Verifying  : jboss-annotations-1.1-api-1.0.1-0.6.20120212git76e1a2.el7.noarch                                                                                                                     229/259
+  Verifying  : resteasy-base-jaxrs-api-3.0.6-4.el7.noarch                                                                                                                                           230/259
+  Verifying  : libtdb-1.3.15-1.el7.x86_64                                                                                                                                                           231/259
+  Verifying  : apache-commons-cli-1.2-13.el7.noarch                                                                                                                                                 232/259
+  Verifying  : xorg-x11-fonts-Type1-7.5-9.el7.noarch                                                                                                                                                233/259
+  Verifying  : txw2-20110809-8.el7.noarch                                                                                                                                                           234/259
+  Verifying  : openldap-clients-2.4.44-15.el7_5.x86_64                                                                                                                                              235/259
+  Verifying  : joda-time-2.2-3.tzdata2013c.el7.noarch                                                                                                                                               236/259
+  Verifying  : cal10n-0.7.7-4.el7.noarch                                                                                                                                                            237/259
+  Verifying  : sssd-client-1.16.0-19.el7_5.8.x86_64                                                                                                                                                 238/259
+  Verifying  : 1:perl-Compress-Raw-Zlib-2.061-4.el7.x86_64                                                                                                                                          239/259
+  Verifying  : python-backports-1.0-8.el7.x86_64                                                                                                                                                    240/259
+  Verifying  : python-ply-3.4-11.el7.noarch                                                                                                                                                         241/259
+  Verifying  : python-custodia-0.3.1-4.el7.noarch                                                                                                                                                   242/259
+  Verifying  : resteasy-base-jackson-provider-3.0.6-4.el7.noarch                                                                                                                                    243/259
+  Verifying  : ldns-1.6.16-10.el7.x86_64                                                                                                                                                            244/259
+  Verifying  : stax-ex-1.7.1-6.el7.noarch                                                                                                                                                           245/259
+  Verifying  : 1:isorelax-0-0.15.release20050331.el7.noarch                                                                                                                                         246/259
+  Verifying  : 1:cups-libs-1.6.3-35.el7.x86_64                                                                                                                                                      247/259
+  Verifying  : apache-commons-dbcp-1.4-17.el7.noarch                                                                                                                                                248/259
+  Verifying  : krb5-server-1.15.1-19.el7.x86_64                                                                                                                                                     249/259
+  Verifying  : python-requests-2.6.0-1.el7_1.noarch                                                                                                                                                 250/259
+  Verifying  : jsr-311-1.1.1-6.el7.noarch                                                                                                                                                           251/259
+  Verifying  : augeas-libs-1.4.0-5.el7_5.1.x86_64                                                                                                                                                   252/259
+  Verifying  : nuxwdog-1.0.3-7.el7.x86_64                                                                                                                                                           253/259
+  Verifying  : apache-commons-daemon-1.0.13-7.el7.x86_64                                                                                                                                            254/259
+  Verifying  : python2-pyasn1-0.1.9-7.el7.noarch                                                                                                                                                    255/259
+  Verifying  : javassist-3.16.1-10.el7.noarch                                                                                                                                                       256/259
+  Verifying  : libfontenc-1.1.3-3.el7.x86_64                                                                                                                                                        257/259
+  Verifying  : 1:msv-msv-2013.5.1-7.el7.noarch                                                                                                                                                      258/259
+  Verifying  : objectweb-asm-3.3.1-9.el7.noarch                                                                                                                                                     259/259
+
+Installed:
+  bind.x86_64 32:9.9.4-61.el7_5.1           bind-dyndb-ldap.x86_64 0:11.1-4.el7           ipa-server.x86_64 0:4.5.4-10.el7.centos.4.4           ipa-server-dns.noarch 0:4.5.4-10.el7.centos.4.4
+
+Dependency Installed:
+  389-ds-base.x86_64 0:1.3.7.5-28.el7_5                                     389-ds-base-libs.x86_64 0:1.3.7.5-28.el7_5                        alsa-lib.x86_64 0:1.1.4.1-2.el7
+  antlr-tool.noarch 0:2.7.7-30.el7                                          apache-commons-cli.noarch 0:1.2-13.el7                            apache-commons-codec.noarch 0:1.8-7.el7
+  apache-commons-collections.noarch 0:3.2.1-22.el7_2                        apache-commons-daemon.x86_64 0:1.0.13-7.el7                       apache-commons-dbcp.noarch 0:1.4-17.el7
+  apache-commons-io.noarch 1:2.4-12.el7                                     apache-commons-lang.noarch 0:2.6-15.el7                           apache-commons-logging.noarch 0:1.1.2-7.el7
+  apache-commons-pool.noarch 0:1.6-9.el7                                    apr.x86_64 0:1.4.8-3.el7_4.1                                      apr-util.x86_64 0:1.5.2-6.el7
+  args4j.noarch 0:2.0.16-13.el7                                             augeas-libs.x86_64 0:1.4.0-5.el7_5.1                              autofs.x86_64 1:5.0.7-83.el7
+  autogen-libopts.x86_64 0:5.18-5.el7                                       avahi-libs.x86_64 0:0.6.31-19.el7                                 avalon-framework.noarch 0:4.3-10.el7
+  avalon-logkit.noarch 0:2.1-14.el7                                         bcel.noarch 0:5.2-18.el7                                          bea-stax.noarch 0:1.2.0-9.el7
+  bea-stax-api.noarch 0:1.2.0-9.el7                                         bind-pkcs11.x86_64 32:9.9.4-61.el7_5.1                            bind-pkcs11-libs.x86_64 32:9.9.4-61.el7_5.1
+  bind-pkcs11-utils.x86_64 32:9.9.4-61.el7_5.1                              c-ares.x86_64 0:1.10.0-3.el7                                      cal10n.noarch 0:0.7.7-4.el7
+  certmonger.x86_64 0:0.78.4-3.el7_5.1                                      codemodel.noarch 0:2.6-9.el7                                      copy-jdk-configs.noarch 0:3.3-10.el7_5
+  cups-libs.x86_64 1:1.6.3-35.el7                                           custodia.noarch 0:0.3.1-4.el7                                     cyrus-sasl-gssapi.x86_64 0:2.1.26-23.el7
+  cyrus-sasl-md5.x86_64 0:2.1.26-23.el7                                     cyrus-sasl-plain.x86_64 0:2.1.26-23.el7                           dom4j.noarch 0:1.6.1-20.el7
+  easymock2.noarch 0:2.5.2-12.el7                                           ecj.x86_64 1:4.5.2-3.el7                                          fontawesome-fonts.noarch 0:4.1.0-1.el7
+  fontconfig.x86_64 0:2.10.95-11.el7                                        fontpackages-filesystem.noarch 0:1.44-8.el7                       geronimo-jms.noarch 0:1.1.1-19.el7
+  geronimo-jta.noarch 0:1.1.1-17.el7                                        giflib.x86_64 0:4.1.6-9.el7                                       glassfish-dtd-parser.noarch 0:1.2-0.8.20120120svn.el7
+  glassfish-fastinfoset.noarch 0:1.2.12-9.el7                               glassfish-jaxb.noarch 0:2.2.5-6.el7                               glassfish-jaxb-api.noarch 0:2.2.7-4.el7
+  gperftools-libs.x86_64 0:2.6.1-1.el7                                      hamcrest.noarch 0:1.3-6.el7                                       hesiod.x86_64 0:3.2.1-3.el7
+  hsqldb.noarch 1:1.8.1.3-14.el7                                            http-parser.x86_64 0:2.7.1-5.el7_4                                httpcomponents-client.noarch 0:4.2.5-5.el7_0
+  httpcomponents-core.noarch 0:4.2.4-6.el7                                  httpd.x86_64 0:2.4.6-80.el7.centos.1                              httpd-tools.x86_64 0:2.4.6-80.el7.centos.1
+  ipa-client.x86_64 0:4.5.4-10.el7.centos.4.4                               ipa-client-common.noarch 0:4.5.4-10.el7.centos.4.4                ipa-common.noarch 0:4.5.4-10.el7.centos.4.4
+  ipa-server-common.noarch 0:4.5.4-10.el7.centos.4.4                        isorelax.noarch 1:0-0.15.release20050331.el7                      istack-commons.noarch 0:2.17-4.el7
+  jackson.noarch 0:1.9.4-7.el7                                              jakarta-commons-httpclient.noarch 1:3.1-16.el7_0                  jakarta-oro.noarch 0:2.0.8-16.el7
+  java-1.8.0-openjdk.x86_64 1:1.8.0.191.b12-0.el7_5                         java-1.8.0-openjdk-headless.x86_64 1:1.8.0.191.b12-0.el7_5        javamail.noarch 0:1.4.6-8.el7
+  javapackages-tools.noarch 0:3.4.1-11.el7                                  javassist.noarch 0:3.16.1-10.el7                                  jaxen.noarch 0:1.1.3-11.el7
+  jboss-annotations-1.1-api.noarch 0:1.0.1-0.6.20120212git76e1a2.el7        jdom.noarch 0:1.1.3-6.el7                                         jing.noarch 0:20091111-14.el7
+  joda-convert.noarch 0:1.3-5.el7                                           joda-time.noarch 0:2.2-3.tzdata2013c.el7                          jsr-311.noarch 0:1.1.1-6.el7
+  jss.x86_64 0:4.4.0-13.el7_5                                               junit.noarch 0:4.11-8.el7                                         jvnet-parent.noarch 0:4-2.el7
+  krb5-pkinit.x86_64 0:1.15.1-19.el7                                        krb5-server.x86_64 0:1.15.1-19.el7                                krb5-workstation.x86_64 0:1.15.1-19.el7
+  ldapjdk.noarch 0:4.19-5.el7                                               ldns.x86_64 0:1.6.16-10.el7                                       libICE.x86_64 0:1.0.9-9.el7
+  libSM.x86_64 0:1.2.2-2.el7                                                libX11.x86_64 0:1.6.5-1.el7                                       libX11-common.noarch 0:1.6.5-1.el7
+  libXau.x86_64 0:1.0.8-2.1.el7                                             libXcomposite.x86_64 0:0.4.4-4.1.el7                              libXext.x86_64 0:1.3.3-3.el7
+  libXfont.x86_64 0:1.5.2-1.el7                                             libXi.x86_64 0:1.7.9-1.el7                                        libXrender.x86_64 0:0.9.10-1.el7
+  libXtst.x86_64 0:1.2.3-1.el7                                              libdhash.x86_64 0:0.5.0-29.el7                                    libfontenc.x86_64 0:1.1.3-3.el7
+  libicu.x86_64 0:50.1.2-15.el7                                             libipa_hbac.x86_64 0:1.16.0-19.el7_5.8                            libitm.x86_64 0:4.8.5-28.el7_5.1
+  libjpeg-turbo.x86_64 0:1.2.90-5.el7                                       libkadm5.x86_64 0:1.15.1-19.el7                                   libldb.x86_64 0:1.2.2-1.el7
+  libpcap.x86_64 14:1.5.3-11.el7                                            libpng.x86_64 2:1.5.13-7.el7_2                                    libsmbclient.x86_64 0:4.7.1-9.el7_5
+  libsss_autofs.x86_64 0:1.16.0-19.el7_5.8                                  libsss_certmap.x86_64 0:1.16.0-19.el7_5.8                         libsss_idmap.x86_64 0:1.16.0-19.el7_5.8
+  libsss_nss_idmap.x86_64 0:1.16.0-19.el7_5.8                               libsss_sudo.x86_64 0:1.16.0-19.el7_5.8                            libtalloc.x86_64 0:2.1.10-1.el7
+  libtdb.x86_64 0:1.3.15-1.el7                                              libtevent.x86_64 0:0.9.33-2.el7                                   libwbclient.x86_64 0:4.7.1-9.el7_5
+  libxcb.x86_64 0:1.12-1.el7                                                libxslt.x86_64 0:1.1.28-5.el7                                     lksctp-tools.x86_64 0:1.0.17-2.el7
+  log4j.noarch 0:1.2.17-16.el7_4                                            mailcap.noarch 0:2.1.41-2.el7                                     mod_auth_gssapi.x86_64 0:1.5.1-5.el7
+  mod_lookup_identity.x86_64 0:1.0.0-1.el7                                  mod_nss.x86_64 0:1.0.14-12.el7                                    mod_session.x86_64 0:2.4.6-80.el7.centos.1
+  mod_wsgi.x86_64 0:3.4-13.el7_5.1                                          msv-msv.noarch 1:2013.5.1-7.el7                                   msv-xsdlib.noarch 1:2013.5.1-7.el7
+  ntp.x86_64 0:4.2.6p5-28.el7.centos                                        ntpdate.x86_64 0:4.2.6p5-28.el7.centos                            nuxwdog.x86_64 0:1.0.3-7.el7
+  nuxwdog-client-java.x86_64 0:1.0.3-7.el7                                  objectweb-asm.noarch 0:3.3.1-9.el7                                oddjob.x86_64 0:0.31.5-4.el7
+  oddjob-mkhomedir.x86_64 0:0.31.5-4.el7                                    open-sans-fonts.noarch 0:1.10-1.el7                               opencryptoki.x86_64 0:3.7.0-1.el7
+  opencryptoki-libs.x86_64 0:3.7.0-1.el7                                    opencryptoki-swtok.x86_64 0:3.7.0-1.el7                           opendnssec.x86_64 0:1.4.7-4.el7
+  openldap-clients.x86_64 0:2.4.44-15.el7_5                                 perl-Archive-Tar.noarch 0:1.92-2.el7                              perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7
+  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7                               perl-DB_File.x86_64 0:1.830-6.el7                                 perl-Data-Dumper.x86_64 0:2.145-3.el7
+  perl-IO-Compress.noarch 0:2.061-2.el7                                     perl-IO-Zlib.noarch 1:1.10-292.el7                                perl-Mozilla-LDAP.x86_64 0:1.5.3-12.el7
+  perl-NetAddr-IP.x86_64 0:4.069-3.el7                                      perl-Package-Constants.noarch 1:0.02-292.el7                      pki-base.noarch 0:10.5.1-15.el7_5
+  pki-base-java.noarch 0:10.5.1-15.el7_5                                    pki-ca.noarch 0:10.5.1-15.el7_5                                   pki-kra.noarch 0:10.5.1-15.el7_5
+  pki-server.noarch 0:10.5.1-15.el7_5                                       pki-tools.x86_64 0:10.5.1-15.el7_5                                psmisc.x86_64 0:22.20-15.el7
+  pyOpenSSL.x86_64 0:0.13.1-3.el7                                           python-augeas.noarch 0:0.5.0-2.el7                                python-backports.x86_64 0:1.0-8.el7
+  python-backports-ssl_match_hostname.noarch 0:3.5.0.1-1.el7                python-cffi.x86_64 0:1.6.0-5.el7                                  python-chardet.noarch 0:2.2.1-1.el7_1
+  python-custodia.noarch 0:0.3.1-4.el7                                      python-dateutil.noarch 0:1.5-7.el7                                python-dns.noarch 0:1.12.0-4.20150617git465785f.el7
+  python-enum34.noarch 0:1.0.4-1.el7                                        python-gssapi.x86_64 0:1.2.0-3.el7                                python-idna.noarch 0:2.4-1.el7
+  python-ipaddress.noarch 0:1.0.16-2.el7                                    python-javapackages.noarch 0:3.4.1-11.el7                         python-jwcrypto.noarch 0:0.4.2-1.el7
+  python-kdcproxy.noarch 0:0.3.2-1.el7                                      python-ldap.x86_64 0:2.4.15-2.el7                                 python-libipa_hbac.x86_64 0:1.16.0-19.el7_5.8
+  python-lxml.x86_64 0:3.2.1-4.el7                                          python-netaddr.noarch 0:0.7.5-9.el7                               python-netifaces.x86_64 0:0.10.4-3.el7
+  python-nss.x86_64 0:0.16.0-3.el7                                          python-ply.noarch 0:3.4-11.el7                                    python-pycparser.noarch 0:2.14-1.el7
+  python-qrcode-core.noarch 0:5.0.1-1.el7                                   python-requests.noarch 0:2.6.0-1.el7_1                            python-setuptools.noarch 0:0.9.8-7.el7
+  python-six.noarch 0:1.9.0-2.el7                                           python-sss-murmur.x86_64 0:1.16.0-19.el7_5.8                      python-sssdconfig.noarch 0:1.16.0-19.el7_5.8
+  python-urllib3.noarch 0:1.10.2-5.el7                                      python-yubico.noarch 0:1.2.3-1.el7                                python2-cryptography.x86_64 0:1.7.2-2.el7
+  python2-ipaclient.noarch 0:4.5.4-10.el7.centos.4.4                        python2-ipalib.noarch 0:4.5.4-10.el7.centos.4.4                   python2-ipaserver.noarch 0:4.5.4-10.el7.centos.4.4
+  python2-pyasn1.noarch 0:0.1.9-7.el7                                       python2-pyasn1-modules.noarch 0:0.1.9-7.el7                       pyusb.noarch 0:1.0.0-0.11.b1.el7
+  qdox.noarch 0:1.12.1-10.el7                                               regexp.noarch 0:1.5-13.el7                                        relaxngDatatype.noarch 0:1.0-11.el7
+  resteasy-base-atom-provider.noarch 0:3.0.6-4.el7                          resteasy-base-client.noarch 0:3.0.6-4.el7                         resteasy-base-jackson-provider.noarch 0:3.0.6-4.el7
+  resteasy-base-jaxb-provider.noarch 0:3.0.6-4.el7                          resteasy-base-jaxrs.noarch 0:3.0.6-4.el7                          resteasy-base-jaxrs-api.noarch 0:3.0.6-4.el7
+  rngom.noarch 0:201103-0.8.20120119svn.el7                                 samba-client-libs.x86_64 0:4.7.1-9.el7_5                          samba-common.noarch 0:4.7.1-9.el7_5
+  samba-common-libs.x86_64 0:4.7.1-9.el7_5                                  scannotation.noarch 0:1.0.3-0.7.r12.el7                           slapi-nis.x86_64 0:0.56.0-8.el7
+  slf4j.noarch 0:1.7.4-4.el7_4                                              softhsm.x86_64 0:2.1.0-2.el7                                      sssd.x86_64 0:1.16.0-19.el7_5.8
+  sssd-ad.x86_64 0:1.16.0-19.el7_5.8                                        sssd-client.x86_64 0:1.16.0-19.el7_5.8                            sssd-common.x86_64 0:1.16.0-19.el7_5.8
+  sssd-common-pac.x86_64 0:1.16.0-19.el7_5.8                                sssd-dbus.x86_64 0:1.16.0-19.el7_5.8                              sssd-ipa.x86_64 0:1.16.0-19.el7_5.8
+  sssd-krb5.x86_64 0:1.16.0-19.el7_5.8                                      sssd-krb5-common.x86_64 0:1.16.0-19.el7_5.8                       sssd-ldap.x86_64 0:1.16.0-19.el7_5.8
+  sssd-proxy.x86_64 0:1.16.0-19.el7_5.8                                     stax-ex.noarch 0:1.7.1-6.el7                                      stax2-api.noarch 0:3.1.1-10.el7
+  svrcore.x86_64 0:4.1.3-2.el7                                              systemd-python.x86_64 0:219-57.el7_5.3                            tomcat.noarch 0:7.0.76-8.el7_5
+  tomcat-el-2.2-api.noarch 0:7.0.76-8.el7_5                                 tomcat-jsp-2.2-api.noarch 0:7.0.76-8.el7_5                        tomcat-lib.noarch 0:7.0.76-8.el7_5
+  tomcat-servlet-3.0-api.noarch 0:7.0.76-8.el7_5                            tomcatjss.noarch 0:7.2.1-7.el7_5                                  ttmkfdir.x86_64 0:3.0.9-42.el7
+  txw2.noarch 0:20110809-8.el7                                              tzdata-java.noarch 0:2018f-2.el7                                  velocity.noarch 0:1.7-10.el7
+  words.noarch 0:3.0-22.el7                                                 ws-jaxme.noarch 0:0.5.2-10.el7                                    xalan-j2.noarch 0:2.7.1-23.el7
+  xerces-j2.noarch 0:2.11.0-17.el7_0                                        xml-commons-apis.noarch 0:1.4.01-16.el7                           xml-commons-resolver.noarch 0:1.2-15.el7
+  xmlrpc-c.x86_64 0:1.32.5-1905.svn2451.el7                                 xmlrpc-c-client.x86_64 0:1.32.5-1905.svn2451.el7                  xorg-x11-font-utils.x86_64 1:7.5-20.el7
+  xorg-x11-fonts-Type1.noarch 0:7.5-9.el7                                   xpp3.noarch 0:1.1.3.8-11.el7                                      xsom.noarch 0:0-10.20110809svn.el7
+
+Complete!
+[root@ipaserv ~]# dig ipaserv.otus.test
+
+; <<>> DiG 9.9.4-RedHat-9.9.4-61.el7_5.1 <<>> ipaserv.otus.test
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 16277
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;ipaserv.otus.test.		IN	A
+
+;; AUTHORITY SECTION:
+.			74958	IN	SOA	a.root-servers.net. nstld.verisign-grs.com. 2018120300 1800 900 604800 86400
+
+;; Query time: 11 msec
+;; SERVER: 10.0.2.3#53(10.0.2.3)
+;; WHEN: Sat Dec 01 19:23:47 UTC 2018
+;; MSG SIZE  rcvd: 121
+
+[root@ipaserv ~]# cat /etc/host
+host.conf    hostname     hosts        hosts.allow  hosts.deny
+[root@ipaserv ~]# cat /etc/hosts
+192.168.50.4	ipaserv.otus.test	ipaserv
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+[root@ipaserv ~]# ping ipaserv
+PING ipaserv.otus.test (192.168.50.4) 56(84) bytes of data.
+64 bytes from ipaserv.otus.test (192.168.50.4): icmp_seq=1 ttl=64 time=0.018 ms
+64 bytes from ipaserv.otus.test (192.168.50.4): icmp_seq=2 ttl=64 time=0.045 ms
+^C
+--- ipaserv.otus.test ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1021ms
+rtt min/avg/max/mdev = 0.018/0.031/0.045/0.014 ms
+[root@ipaserv ~]# yum install haveged
+Failed to set locale, defaulting to C
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * epel: mirror.logol.ru
+ * extras: mirror.logol.ru
+ * updates: mirror.logol.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package haveged.x86_64 0:1.9.1-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================================================
+ Package                                          Arch                                            Version                                               Repository                                     Size
+============================================================================================================================================================================================================
+Installing:
+ haveged                                          x86_64                                          1.9.1-1.el7                                           epel                                           61 k
+
+Transaction Summary
+============================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 61 k
+Installed size: 181 k
+Is this ok [y/d/N]: y
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/epel/packages/haveged-1.9.1-1.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY                                     ]  0.0 B/s |    0 B  --:--:-- ETA
+Public key for haveged-1.9.1-1.el7.x86_64.rpm is not installed
+haveged-1.9.1-1.el7.x86_64.rpm                                                                                                                                                       |  61 kB  00:00:00
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : haveged-1.9.1-1.el7.x86_64                                                                                                                                                               1/1
+  Verifying  : haveged-1.9.1-1.el7.x86_64                                                                                                                                                               1/1
+
+Installed:
+  haveged.x86_64 0:1.9.1-1.el7
+
+Complete!
+[root@ipaserv ~]# systemctl enable haveged
+Created symlink from /etc/systemd/system/multi-user.target.wants/haveged.service to /usr/lib/systemd/system/haveged.service.
+[root@ipaserv ~]# systemctl start haveged
+[root@ipaserv ~]# ipa-server-install -U --hostname=$(hostname) -r OTUS.TEST -n otus.test -p 12345678 -a 12345678 --setupa-dns --no-forwarders --no-reverse
+Usage: ipa-server-install [options]
+
+ipa-server-install: error: no such option: --setupa-dns
+[root@ipaserv ~]# ipa-server-install -U --hostname=$(hostname) -r OTUS.TEST -n otus.test -p 12345678 -a 12345678 --setup-dns --no-forwarders --no-reverse
+Checking DNS domain otus.test, please wait ...
+
+The log file for this installation can be found in /var/log/ipaserver-install.log
+==============================================================================
+This program will set up the IPA Server.
+
+This includes:
+  * Configure a stand-alone CA (dogtag) for certificate management
+  * Configure the Network Time Daemon (ntpd)
+  * Create and configure an instance of Directory Server
+  * Create and configure a Kerberos Key Distribution Center (KDC)
+  * Configure Apache (httpd)
+  * Configure DNS (bind)
+  * Configure the KDC to enable PKINIT
+
+WARNING: conflicting time&date synchronization service 'chronyd' will be disabled
+in favor of ntpd
+
+Warning: skipping DNS resolution of host ipaserv.otus.test
+Checking DNS domain otus.test., please wait ...
+
+The IPA Master Server will be configured with:
+Hostname:       ipaserv.otus.test
+IP address(es): 192.168.50.4
+Domain name:    otus.test
+Realm name:     OTUS.TEST
+
+BIND DNS server will be configured to serve IPA domain with:
+Forwarders:       No forwarders
+Forward policy:   only
+Reverse zone(s):  No reverse zone
+
+Configuring NTP daemon (ntpd)
+  [1/4]: stopping ntpd
+  [2/4]: writing configuration
+  [3/4]: configuring ntpd to start on boot
+  [4/4]: starting ntpd
+Done configuring NTP daemon (ntpd).
+Configuring directory server (dirsrv). Estimated time: 30 seconds
+  [1/45]: creating directory server instance
+  [2/45]: enabling ldapi
+  [3/45]: configure autobind for root
+  [4/45]: stopping directory server
+  [5/45]: updating configuration in dse.ldif
+  [6/45]: starting directory server
+  [7/45]: adding default schema
+  [8/45]: enabling memberof plugin
+  [9/45]: enabling winsync plugin
+  [10/45]: configuring replication version plugin
+  [11/45]: enabling IPA enrollment plugin
+  [12/45]: configuring uniqueness plugin
+  [13/45]: configuring uuid plugin
+  [14/45]: configuring modrdn plugin
+  [15/45]: configuring DNS plugin
+  [16/45]: enabling entryUSN plugin
+  [17/45]: configuring lockout plugin
+  [18/45]: configuring topology plugin
+  [19/45]: creating indices
+  [20/45]: enabling referential integrity plugin
+  [21/45]: configuring certmap.conf
+  [22/45]: configure new location for managed entries
+  [23/45]: configure dirsrv ccache
+  [24/45]: enabling SASL mapping fallback
+  [25/45]: restarting directory server
+  [26/45]: adding sasl mappings to the directory
+  [27/45]: adding default layout
+  [28/45]: adding delegation layout
+  [29/45]: creating container for managed entries
+  [30/45]: configuring user private groups
+  [31/45]: configuring netgroups from hostgroups
+  [32/45]: creating default Sudo bind user
+  [33/45]: creating default Auto Member layout
+  [34/45]: adding range check plugin
+  [35/45]: creating default HBAC rule allow_all
+  [36/45]: adding entries for topology management
+  [37/45]: initializing group membership
+  [38/45]: adding master entry
+  [39/45]: initializing domain level
+  [40/45]: configuring Posix uid/gid generation
+  [41/45]: adding replication acis
+  [42/45]: activating sidgen plugin
+  [43/45]: activating extdom plugin
+  [44/45]: tuning directory server
+  [45/45]: configuring directory to start on boot
+Done configuring directory server (dirsrv).
+Configuring Kerberos KDC (krb5kdc)
+  [1/10]: adding kerberos container to the directory
+  [2/10]: configuring KDC
+  [3/10]: initialize kerberos container
+  [4/10]: adding default ACIs
+  [5/10]: creating a keytab for the directory
+  [6/10]: creating a keytab for the machine
+  [7/10]: adding the password extension to the directory
+  [8/10]: creating anonymous principal
+  [9/10]: starting the KDC
+  [10/10]: configuring KDC to start on boot
+Done configuring Kerberos KDC (krb5kdc).
+Configuring kadmin
+  [1/2]: starting kadmin
+  [2/2]: configuring kadmin to start on boot
+Done configuring kadmin.
+Configuring ipa-custodia
+  [1/5]: Making sure custodia container exists
+  [2/5]: Generating ipa-custodia config file
+  [3/5]: Generating ipa-custodia keys
+  [4/5]: starting ipa-custodia
+  [5/5]: configuring ipa-custodia to start on boot
+Done configuring ipa-custodia.
+Configuring certificate server (pki-tomcatd). Estimated time: 3 minutes
+  [1/29]: configuring certificate server instance
+  [2/29]: exporting Dogtag certificate store pin
+  [3/29]: stopping certificate server instance to update CS.cfg
+  [4/29]: backing up CS.cfg
+  [5/29]: disabling nonces
+  [6/29]: set up CRL publishing
+  [7/29]: enable PKIX certificate path discovery and validation
+  [8/29]: starting certificate server instance
+  [9/29]: configure certmonger for renewals
+  [10/29]: requesting RA certificate from CA
+  [11/29]: setting up signing cert profile
+  [12/29]: setting audit signing renewal to 2 years
+  [13/29]: restarting certificate server
+  [14/29]: publishing the CA certificate
+  [15/29]: adding RA agent as a trusted user
+  [16/29]: authorizing RA to modify profiles
+  [17/29]: authorizing RA to manage lightweight CAs
+  [18/29]: Ensure lightweight CAs container exists
+  [19/29]: configure certificate renewals
+  [20/29]: configure Server-Cert certificate renewal
+  [21/29]: Configure HTTP to proxy connections
+  [22/29]: restarting certificate server
+  [23/29]: updating IPA configuration
+  [24/29]: enabling CA instance
+  [25/29]: migrating certificate profiles to LDAP
+  [26/29]: importing IPA certificate profiles
+  [27/29]: adding default CA ACL
+  [28/29]: adding 'ipa' CA entry
+  [29/29]: configuring certmonger renewal for lightweight CAs
+Done configuring certificate server (pki-tomcatd).
+Configuring directory server (dirsrv)
+  [1/3]: configuring TLS for DS instance
+  [2/3]: adding CA certificate entry
+  [3/3]: restarting directory server
+Done configuring directory server (dirsrv).
+Configuring ipa-otpd
+  [1/2]: starting ipa-otpd
+  [2/2]: configuring ipa-otpd to start on boot
+Done configuring ipa-otpd.
+Configuring the web interface (httpd)
+  [1/22]: stopping httpd
+  [2/22]: setting mod_nss port to 443
+  [3/22]: setting mod_nss cipher suite
+  [4/22]: setting mod_nss protocol list to TLSv1.0 - TLSv1.2
+  [5/22]: setting mod_nss password file
+  [6/22]: enabling mod_nss renegotiate
+  [7/22]: disabling mod_nss OCSP
+  [8/22]: adding URL rewriting rules
+  [9/22]: configuring httpd
+  [10/22]: setting up httpd keytab
+  [11/22]: configuring Gssproxy
+  [12/22]: setting up ssl
+  [13/22]: configure certmonger for renewals
+  [14/22]: importing CA certificates from LDAP
+  [15/22]: publish CA cert
+  [16/22]: clean up any existing httpd ccaches
+  [17/22]: configuring SELinux for httpd
+  [18/22]: create KDC proxy config
+  [19/22]: enable KDC proxy
+  [20/22]: starting httpd
+  [21/22]: configuring httpd to start on boot
+  [22/22]: enabling oddjobd
+Done configuring the web interface (httpd).
+Configuring Kerberos KDC (krb5kdc)
+  [1/1]: installing X509 Certificate for PKINIT
+Done configuring Kerberos KDC (krb5kdc).
+Applying LDAP updates
+Upgrading IPA:. Estimated time: 1 minute 30 seconds
+  [1/9]: stopping directory server
+  [2/9]: saving configuration
+  [3/9]: disabling listeners
+  [4/9]: enabling DS global lock
+  [5/9]: starting directory server
+  [6/9]: upgrading server
+  [7/9]: stopping directory server
+  [8/9]: restoring configuration
+  [9/9]: starting directory server
+Done.
+Restarting the KDC
+Configuring DNS (named)
+  [1/11]: generating rndc key file
+  [2/11]: adding DNS container
+  [3/11]: setting up our zone
+  [4/11]: setting up our own record
+  [5/11]: setting up records for other masters
+  [6/11]: adding NS record to the zones
+  [7/11]: setting up kerberos principal
+  [8/11]: setting up named.conf
+  [9/11]: setting up server configuration
+  [10/11]: configuring named to start on boot
+  [11/11]: changing resolv.conf to point to ourselves
+Done configuring DNS (named).
+Restarting the web server to pick up resolv.conf changes
+Configuring DNS key synchronization service (ipa-dnskeysyncd)
+  [1/7]: checking status
+  [2/7]: setting up bind-dyndb-ldap working directory
+  [3/7]: setting up kerberos principal
+  [4/7]: setting up SoftHSM
+  [5/7]: adding DNSSEC containers
+  [6/7]: creating replica keys
+  [7/7]: configuring ipa-dnskeysyncd to start on boot
+Done configuring DNS key synchronization service (ipa-dnskeysyncd).
+Restarting ipa-dnskeysyncd
+Restarting named
+Updating DNS system records
+Configuring client side components
+Using existing certificate '/etc/ipa/ca.crt'.
+Client hostname: ipaserv.otus.test
+Realm: OTUS.TEST
+DNS Domain: otus.test
+IPA Server: ipaserv.otus.test
+BaseDN: dc=otus,dc=test
+
+Skipping synchronizing time with NTP server.
+New SSSD config will be created
+Configured sudoers in /etc/nsswitch.conf
+Configured /etc/sssd/sssd.conf
+trying https://ipaserv.otus.test/ipa/json
+[try 1]: Forwarding 'schema' to json server 'https://ipaserv.otus.test/ipa/json'
+trying https://ipaserv.otus.test/ipa/session/json
+[try 1]: Forwarding 'ping' to json server 'https://ipaserv.otus.test/ipa/session/json'
+[try 1]: Forwarding 'ca_is_enabled' to json server 'https://ipaserv.otus.test/ipa/session/json'
+Systemwide CA database updated.
+Adding SSH public key from /etc/ssh/ssh_host_rsa_key.pub
+Adding SSH public key from /etc/ssh/ssh_host_ecdsa_key.pub
+Adding SSH public key from /etc/ssh/ssh_host_ed25519_key.pub
+[try 1]: Forwarding 'host_mod' to json server 'https://ipaserv.otus.test/ipa/session/json'
+SSSD enabled
+Configured /etc/openldap/ldap.conf
+Configured /etc/ssh/ssh_config
+Configured /etc/ssh/sshd_config
+Configuring otus.test as NIS domain.
+Client configuration complete.
+The ipa-client-install command was successful
+
+==============================================================================
+Setup complete
+
+Next steps:
+	1. You must make sure these network ports are open:
+		TCP Ports:
+		  * 80, 443: HTTP/HTTPS
+		  * 389, 636: LDAP/LDAPS
+		  * 88, 464: kerberos
+		  * 53: bind
+		UDP Ports:
+		  * 88, 464: kerberos
+		  * 53: bind
+		  * 123: ntp
+
+	2. You can now obtain a kerberos ticket using the command: 'kinit admin'
+	   This ticket will allow you to use the IPA tools (e.g., ipa user-add)
+	   and the web user interface.
+
+Be sure to back up the CA certificates stored in /root/cacert.p12
+These files are required to create replicas. The password for these
+files is the Directory Manager password
+[root@ipaserv ~]# ipa
+anaconda-ks.cfg  .bash_logout     .bashrc          cacert.p12       .cshrc           original-ks.cfg  .tcshrc
+.bash_history    .bash_profile    ca-agent.p12     .cache/          .dogtag/         .pki/            .viminfo
+[root@ipaserv ~]# ipa --help
+Usage: ipa [global-options] COMMAND [command-options]
+
+Manage an IPA domain
+
+Options:
+  --version          show program's version number and exit
+  -h, --help         Show this help message and exit
+  -e KEY=VAL         Set environment variable KEY to VAL
+  -c FILE            Load configuration from FILE.
+  -d, --debug        Produce full debuging output
+  --delegate         Delegate the TGT to the IPA server
+  -v, --verbose      Produce more verbose output. A second -v displays the
+                     XML-RPC request
+  -a, --prompt-all   Prompt for ALL values (even if optional)
+  -n, --no-prompt    Prompt for NO values (even if required)
+  -f, --no-fallback  Only use the server configured in /etc/ipa/default.conf
+
+See "ipa help topics" for available help topics.
+See "ipa help <TOPIC>" for more information on a specific topic.
+See "ipa help commands" for the full list of commands.
+See "ipa <COMMAND> --help" for more information on a specific command.
+[root@ipaserv ~]# systemctl status firewalld
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:firewalld(1)
+[root@ipaserv ~]# kinit admin
+Password for admin@OTUS.TEST:
+[root@ipaserv ~]# klist -e
+Ticket cache: KEYRING:persistent:0:0
+Default principal: admin@OTUS.TEST
+
+Valid starting     Expires            Service principal
+12/03/18 09:05:39  12/04/18 09:05:35  krbtgt/OTUS.TEST@OTUS.TEST
+	Etype (skey, tkt): aes256-cts-hmac-sha1-96, aes256-cts-hmac-sha1-96
+[root@ipaserv ~]# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::bf14:cf3d:df10:d0bd  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:c8:3e:8b  txqueuelen 1000  (Ethernet)
+        RX packets 180589  bytes 170209558 (162.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 52366  bytes 3180730 (3.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.50.4  netmask 255.255.255.0  broadcast 192.168.50.255
+        inet6 fe80::a00:27ff:fe46:2fbc  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:46:2f:bc  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 12  bytes 816 (816.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 13438  bytes 12681844 (12.0 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 13438  bytes 12681844 (12.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@ipaserv ~]# logout
+[vagrant@ipaserv ~]$ logout
+Connection to 127.0.0.1 closed.
+timurkhisamov@Air-Timur:/Users/timurkhisamov/GITDIR/otus/lesson10$
+ ~/GITDIR/otus   l10     lesson10  vim Vagrantfile                                                                                                                                               55.7m
+timurkhisamov@Air-Timur:/Users/timurkhisamov/GITDIR/otus/lesson10$
+ ~/GITDIR/otus   l10     lesson10  vagrant reload                                                                                                                                                15.5s
+==> ipaserv: Attempting graceful shutdown of VM...
+==> ipaserv: Clearing any previously set forwarded ports...
+==> ipaserv: Fixed port collision for 22 => 2222. Now on port 2200.
+==> ipaserv: Clearing any previously set network interfaces...
+==> ipaserv: Preparing network interfaces based on configuration...
+    ipaserv: Adapter 1: nat
+    ipaserv: Adapter 2: intnet
+==> ipaserv: Forwarding ports...
+    ipaserv: 22 (guest) => 2200 (host) (adapter 1)
+==> ipaserv: Running 'pre-boot' VM customizations...
+==> ipaserv: Booting VM...
+==> ipaserv: Waiting for machine to boot. This may take a few minutes...
+    ipaserv: SSH address: 127.0.0.1:2200
+    ipaserv: SSH username: vagrant
+    ipaserv: SSH auth method: private key
+==> ipaserv: Machine booted and ready!
+==> ipaserv: Checking for guest additions in VM...
+==> ipaserv: Setting hostname...
+==> ipaserv: Configuring and enabling network interfaces...
+==> ipaserv: Mounting shared folders...
+    ipaserv: /vagrant => /Users/timurkhisamov/GITDIR/otus/lesson10
+Vagrant was unable to mount VirtualBox shared folders. This is usually
+because the filesystem "vboxsf" is not available. This filesystem is
+made available via the VirtualBox Guest Additions and kernel module.
+Please verify that these guest additions are properly installed in the
+guest. This is not a bug in Vagrant and is usually caused by a faulty
+Vagrant box. For context, the command attempted was:
+
+mount -t vboxsf -o uid=1000,gid=1000 vagrant /vagrant
+
+The error output from the command was:
+
+/sbin/mount.vboxsf: mounting failed with the error: No such device
+
+timurkhisamov@Air-Timur:/Users/timurkhisamov/GITDIR/otus/lesson10$
+ ~/GITDIR/otus   l10     lesson10  vagrant reload                                                                                                                                                 3.9m
+^CExiting due to interrupt.
+timurkhisamov@Air-Timur:/Users/timurkhisamov/GITDIR/otus/lesson10$
+ ~/GITDIR/otus   l10     lesson10  vagrant ssh                                                                                                                                                  4110ms
+^C⏎                                                                                                                                                                                                         timurkhisamov@Air-Timur:/Users/timurkhisamov/GITDIR/otus/lesson10$
+ ~/GITDIR/otus   l10     lesson10  vagrant ssh ipaserv                                                                                                                                          2169ms
+Last login: Sat Dec  1 19:00:56 2018 from 10.0.2.2
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+[vagrant@ipaserv ~]$ sudo -i
+[root@ipaserv ~]# systemctl status ipa
+● ipa.service - Identity, Policy, Audit
+   Loaded: loaded (/usr/lib/systemd/system/ipa.service; enabled; vendor preset: disabled)
+   Active: active (exited) since Mon 2018-12-03 09:20:06 UTC; 1min 57s ago
+  Process: 982 ExecStart=/usr/sbin/ipactl start (code=exited, status=0/SUCCESS)
+ Main PID: 982 (code=exited, status=0/SUCCESS)
+   CGroup: /system.slice/ipa.service
+
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting krb5kdc Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting kadmin Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting named Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting httpd Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting ipa-custodia Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting ntpd Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting pki-tomcatd Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting ipa-otpd Service
+Dec 03 09:19:59 ipaserv.otus.test ipactl[982]: Starting ipa-dnskeysyncd Service
+Dec 03 09:20:06 ipaserv.otus.test systemd[1]: Started Identity, Policy, Audit.
+[root@ipaserv ~]# klist -e
+klist: Credentials cache keyring 'persistent:0:0' not found
+[root@ipaserv ~]# kinit admin
+Password for admin@OTUS.TEST:
+[root@ipaserv ~]# klist -e
+Ticket cache: KEYRING:persistent:0:0
+Default principal: admin@OTUS.TEST
+
+Valid starting     Expires            Service principal
+12/03/18 09:22:15  12/04/18 09:22:13  krbtgt/OTUS.TEST@OTUS.TEST
+	Etype (skey, tkt): aes256-cts-hmac-sha1-96, aes256-cts-hmac-sha1-96
+[root@ipaserv ~]# netstat -ntulo
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       Timer
+tcp        0      0 0.0.0.0:88              0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 127.0.0.1:953           0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 0.0.0.0:749             0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 0.0.0.0:464             0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 192.168.50.4:53         0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 10.0.2.15:53            0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp6       0      0 :::88                   :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 ::1:953                 :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 ::1:25                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::8443                 :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::443                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::636                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::389                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 127.0.0.1:8009          :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::749                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::111                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::8080                 :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::80                   :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::464                  :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::53                   :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::22                   :::*                    LISTEN      off (0.00/0/0)
+udp        0      0 0.0.0.0:795             0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 0.0.0.0:464             0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 192.168.50.4:53         0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 10.0.2.15:53            0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 127.0.0.1:53            0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 0.0.0.0:88              0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 192.168.50.4:123        0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 10.0.2.15:123           0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           off (0.00/0/0)
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           off (0.00/0/0)
+udp6       0      0 :::795                  :::*                                off (0.00/0/0)
+udp6       0      0 :::464                  :::*                                off (0.00/0/0)
+udp6       0      0 :::53                   :::*                                off (0.00/0/0)
+udp6       0      0 :::88                   :::*                                off (0.00/0/0)
+udp6       0      0 :::111                  :::*                                off (0.00/0/0)
+udp6       0      0 fe80::a00:27ff:fe46:123 :::*                                off (0.00/0/0)
+udp6       0      0 fe80::bf14:cf3d:df1:123 :::*                                off (0.00/0/0)
+udp6       0      0 ::1:123                 :::*                                off (0.00/0/0)
+udp6       0      0 :::123                  :::*                                off (0.00/0/0)
+[root@ipaserv ~]# lsof -i:80
+-bash: lsof: command not found
+[root@ipaserv ~]# yum install lsof
+Failed to set locale, defaulting to C
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                                                                                                                                                 |  32 kB  00:00:00
+ * base: mirror.reconn.ru
+ * epel: mirror.logol.ru
+ * extras: mirror.logol.ru
+ * updates: mirror.logol.ru
+base                                                                                                                                                                                 | 3.6 kB  00:00:00
+extras                                                                                                                                                                               | 3.4 kB  00:00:00
+puppetlabs-pc1                                                                                                                                                                       | 2.5 kB  00:00:00
+updates                                                                                                                                                                              | 3.4 kB  00:00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package lsof.x86_64 0:4.87-5.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================================================
+ Package                                        Arch                                             Version                                               Repository                                      Size
+============================================================================================================================================================================================================
+Installing:
+ lsof                                           x86_64                                           4.87-5.el7                                            base                                           331 k
+
+Transaction Summary
+============================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 331 k
+Installed size: 927 k
+Is this ok [y/d/N]: y
+Downloading packages:
+lsof-4.87-5.el7.x86_64.rpm                                                                                                                                                           | 331 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : lsof-4.87-5.el7.x86_64                                                                                                                                                                   1/1
+  Verifying  : lsof-4.87-5.el7.x86_64                                                                                                                                                                   1/1
+
+Installed:
+  lsof.x86_64 0:4.87-5.el7
+
+Complete!
+[root@ipaserv ~]# lsof -i:80
+COMMAND  PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+httpd   2850   root    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+httpd   2862 apache    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+httpd   2863 apache    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+httpd   2864 apache    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+httpd   2865 apache    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+httpd   2866 apache    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+httpd   3528 apache    4u  IPv6  26070      0t0  TCP *:http (LISTEN)
+[root@ipaserv ~]# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::bf14:cf3d:df10:d0bd  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:c8:3e:8b  txqueuelen 1000  (Ethernet)
+        RX packets 1848  bytes 536453 (523.8 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1490  bytes 130124 (127.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.50.4  netmask 255.255.255.0  broadcast 192.168.50.255
+        inet6 fe80::a00:27ff:fe46:2fbc  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:46:2f:bc  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16  bytes 1164 (1.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 937  bytes 762250 (744.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 937  bytes 762250 (744.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@ipaserv ~]#
