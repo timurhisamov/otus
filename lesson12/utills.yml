@@ -19,6 +19,7 @@
           - sysstat
           - iotop
           - procps-ng
+          - ncdu
         state: present
       tags:
         - utils-setup
