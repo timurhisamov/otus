@@ -1,0 +1,49 @@
+---
+- name: Install Utils
+  hosts: staging-servers
+  become: true
+  tasks:
+    - name: Install Epel Repo
+      yum:
+        name: 
+          - epel-release
+        state: present
+      tags:
+        - epel-release
+
+    - name: Install Utils
+      yum:
+        name: 
+          - htop
+          - atop
+          - sysstat
+          - iotop
+          - iftop
+          - procps-ng
+          - ncdu
+        state: present
+      tags:
+        - utils-setup
+    
+    - name: Setup sysctl values
+      sysctl:
+        name: "{{item.name}}"
+        value: "{{item.value}}"
+        state: present
+      loop:
+        - { name: 'net.core.somaxconn', value: '1024' }                       # размер очереди подключений
+        - { name: 'net.core.rmem_max', value: '8388608' }                     # максимальный размер буфера сокетов
+        - { name: 'net.core.wmem_max', value: '8388608' }
+        - { name: 'net.core.rmem_default', value: '65536' }                   # размер буферов по умолчанию для приема и отправки данных через сокеты
+        - { name: 'net.core.wmem_default', value: '65536' }
+        - { name: 'net.ipv4.tcp_rmem', value: '4096 87380 8388608' }          # тюнинг буферов для TCP и UDP соединений (предпологается большой объем ОЗУ)
+        - { name: 'net.ipv4.tcp_wmem', value: '4096 65536 8388608' }
+        - { name: 'net.ipv6.conf.all.disable_ipv6', value: '1' }              # отключение ipv6 на всех интерфейсах
+        - { name: 'kernel.core_pattern', value: '/var/core/%E.%t.%p' }        # имя файла дампа ядра
+        - { name: 'vm.swappiness', value: '5' }                               # приоритет начала своппинга
+        - { name: 'vm.dirty_background_ratio', value: '5' }                   # процент системной памяти, который можно заполнить dirty pages до того, как фоновые процессы pdflush запишет их на диск
+        - { name: 'vm.dirty_ratio', value: '10' }                             # принудительно чистить буферы, когда они занимают более 10% размера ОЗУ (для целостности данных)
+      tags:
+        - sysctl-tuning
+
+...
