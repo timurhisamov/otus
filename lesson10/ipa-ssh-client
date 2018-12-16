@@ -1,0 +1,2 @@
+ssh-keygen -t rsa -C admin@otus.test
+ipa user-mod admin --sshpubkey="ssh-rsa AAA...1j1"
