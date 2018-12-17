@@ -251,6 +251,7 @@ Pool {
   Recycle = yes                       # Bacula can automatically recycle Volumes
   AutoPrune = yes                     # Prune expired volumes
   Volume Retention = 365 days         # one year
+  Label Format = "Default-"
 }
 
 # File Pool definition
@@ -262,6 +263,7 @@ Pool {
   Volume Retention = 365 days         # one year
   Maximum Volume Bytes = 50G          # Limit Volume size to something reasonable
   Maximum Volumes = 100               # Limit number of Volumes in Pool
+  Label Format = "File-"
 }
 
 
