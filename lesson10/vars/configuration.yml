@@ -1,0 +1,8 @@
+---
+  ipa_server: ipaserv
+  ipa_server_ip: 192.168.50.4
+  ipa_domain: otus.test
+  ipa_realm: OTUS.TEST
+  ipa_admin: admin
+  ipa_admin_password: 12345678
+...

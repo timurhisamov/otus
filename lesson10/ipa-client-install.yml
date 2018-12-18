@@ -1,0 +1,46 @@
+---
+- name: Install And Configure Free-IPA client
+  hosts: ipaclients
+  become: true
+  vars_files:
+    - vars/configuration.yml
+
+  tasks:
+    - name: Install Free-IPA client package
+      yum:
+        name: ipa-client
+        state: present
+      tags:
+        - ipa-package
+
+    - name: Adding IPA server in hosts
+      lineinfile: dest=/etc/hosts line='{{ipa_server_ip}} {{ipa_server}}.{{ipa_domain}} {{ipa_server}}'
+      tags:
+        - add-in-hosts
+
+    - name: Uninstall existing configuration
+      shell: ipa-client-install --uninstall --unattended
+      ignore_errors: True
+      tags:
+        - ipa-client-uninstall
+        - ipa-client-install
+
+    - name: Check to fail login
+      shell: 'echo {{ipa_admin_password}} | kinit {{ipa_admin}}; ipa host-del {{ansible_hostname}}'
+      ignore_errors: True
+      tags:
+        - ipa-client-uninstall
+        - ipa-client-install
+
+    - name: CA cert is not present yet
+      file: path=/etc/ipa/ca.crt state=absent
+      tags:
+        - ipa-client-uninstall
+        - ipa-client-install
+
+    - name: Install Freeipa Client
+      shell: ipa-client-install --domain={{ipa_domain}} --server={{ipa_server}}.{{ipa_domain}} --realm={{ipa_realm}} -p {{ipa_admin}} --password={{ipa_admin_password}} --mkhomedir --hostname={{ansible_hostname}}.{{ipa_domain}} --unattended
+      tags:
+      - ipa-client-install
+
+...
