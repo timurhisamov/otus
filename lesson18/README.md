@@ -4,7 +4,7 @@
 
 ### Создайте свой кастомный образ nginx на базе alpine. После запуска nginx должен отдавать кастомную страницу (достаточно изменить дефолтную страницу nginx)
 
-![1.png](images/1.png.png)
+![1.png](images/1.png)
 
 ### Определите разницу между контейнером и образом
 
@@ -33,7 +33,7 @@
 
 ### Собранный образ необходимо запушить в docker hub и дать ссылку на ваш репозиторий
 
-[https://cloud.docker.com/u/timurhisamov/repository/docker/timurhisamov/otus][timurhisamov/otus:0.3]
+[timurhisamov/otus:0.3](https://cloud.docker.com/u/timurhisamov/repository/docker/timurhisamov/otus)
 
 ## Задание со * (звездочкой)
 
@@ -43,6 +43,6 @@
 
 ### После запуска nginx должен показывать php info
 
-[2.png][/images/2.png]
+![2.png](images/2.png)
 
 ### Все собранные образы должны быть в docker hub
