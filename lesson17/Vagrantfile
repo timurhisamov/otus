@@ -48,13 +48,13 @@ MACHINES = {
 :office1Server => {
   :box_name => "centos/7",
   :net => [
-    {ip: '192.168.2.192', adapter: 2, netmask: "255.255.255.192", virtualbox__intnet: "dev-net1"},
+    {ip: '192.168.2.194', adapter: 2, netmask: "255.255.255.192", virtualbox__intnet: "hw-net1"},
   ]
 },
 :office2Server => {
   :box_name => "centos/7",
   :net => [
-    {ip: '192.168.1.192', adapter: 2, netmask: "255.255.255.192", virtualbox__intnet: "dev-net2"},
+    {ip: '192.168.1.194', adapter: 2, netmask: "255.255.255.192", virtualbox__intnet: "hw-net2"},
   ]
 },
 }
