@@ -121,7 +121,7 @@ Vagrant.configure("2") do |config|
           modprobe --first-time bonding
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
-          echo "DEVICE=bond0\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nTYPE=Bond\nBONDING_MASTER=yes\nIPV6INIT=no\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.1\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nUSERCTL=no\nBONDING_OPTS='mode=0 miimon=100'" > /etc/sysconfig/network-scripts/ifcfg-bond0
+          echo "DEVICE=bond0\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nTYPE=Bond\nBONDING_MASTER=yes\nIPV6INIT=no\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.1\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nUSERCTL=no\nBONDING_OPTS='mode=4 miimon=100 lacp_rate=1'" > /etc/sysconfig/network-scripts/ifcfg-bond0
           echo "DEVICE=eth1\nBOOTPROTO=none\nONBOOT=yes\nMASTER=bond0\nSLAVE=yes\nNM_CONTROLLED=no\nTYPE=Ethernet" > /etc/sysconfig/network-scripts/ifcfg-eth1
           echo "DEVICE=eth2\nBOOTPROTO=none\nONBOOT=yes\nMASTER=bond0\nSLAVE=yes\nNM_CONTROLLED=no\nTYPE=Ethernet" > /etc/sysconfig/network-scripts/ifcfg-eth2
           systemctl restart network
@@ -132,7 +132,7 @@ Vagrant.configure("2") do |config|
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           echo "DEFROUTE=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0 
           #echo "GATEWAY=192.168.255.1" >> /etc/sysconfig/network-scripts/ifcfg-eth1
-          echo "DEVICE=bond0\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nTYPE=Bond\nBONDING_MASTER=yes\nIPV6INIT=no\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.2\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nUSERCTL=no\nBONDING_OPTS='mode=0 miimon=100'" > /etc/sysconfig/network-scripts/ifcfg-bond0
+          echo "DEVICE=bond0\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nTYPE=Bond\nBONDING_MASTER=yes\nIPV6INIT=no\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.2\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nUSERCTL=no\nBONDING_OPTS='mode=4 miimon=100 lacp_rate=1'" > /etc/sysconfig/network-scripts/ifcfg-bond0
           echo "DEVICE=eth1\nBOOTPROTO=none\nONBOOT=yes\nMASTER=bond0\nSLAVE=yes\nNM_CONTROLLED=no\nTYPE=Ethernet" > /etc/sysconfig/network-scripts/ifcfg-eth1
           echo "DEVICE=eth2\nBOOTPROTO=static\nBROADCAST=192.168.255.7\nIPADDR=192.168.255.5\nNETMASK=255.255.255.252\nNETWORK=192.168.255.4\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth2
           echo "DEVICE=eth3\nBOOTPROTO=static\nBROADCAST=192.168.255.11\nIPADDR=192.168.255.9\nNETMASK=255.255.255.252\nNETWORK=192.168.255.8\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth3
