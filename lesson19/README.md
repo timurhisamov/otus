@@ -14,16 +14,17 @@ vagrant up office1Router testClient1 testClient2 testServer1 testServer2
 vagrant up inetRouter centralRouter   
 ```
 
-LACP поднять не получилось, journalctl -xe выдает: 
+### LACP поднять не получилось, journalctl -xe выдает: 
+
+<details><summary>скриншот</summary>
+<p>
 
 ![1.png](images/1.png)
 
+</p>
+</details>
 
-```bash
-cat /proc/net/bonding/bond0
-```
-
-<details><summary>жамкни</summary>
+<details><summary>cat /proc/net/bonding/bond0</summary>
 <p>
 
 ```bash
@@ -67,7 +68,7 @@ details actor lacp pdu:
     system mac address: 08:00:27:50:f4:97
     port key: 9
     port priority: 255
-    port number: 1
+    port number: 1<details><summary>
     port state: 207
 details partner lacp pdu:
     system priority: 65535
@@ -104,5 +105,6 @@ details partner lacp pdu:
     port number: 1
     port state: 3
 ```
+
 </p>
 </details>
