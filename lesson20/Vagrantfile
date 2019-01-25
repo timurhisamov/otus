@@ -1,0 +1,84 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+  :vm1 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "test-net"},
+    ]
+  },
+  :vm2 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "test-net"},
+    ]
+  },
+  :vm3 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "test-net"},
+    ]
+  },
+
+}
+
+Vagrant.configure("2") do |config|
+
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+  MACHINES.each do |boxname, boxconfig|
+  config.vbguest.auto_update = false
+  config.vm.box_check_update = false
+  config.vm.define boxname do |box|
+    box.vm.box = boxconfig[:box_name]
+    box.vm.host_name = boxname.to_s
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 256      
+    end
+    boxconfig[:net].each do |ipconf|
+      box.vm.network "private_network", ipconf
+    end
+    
+    if boxconfig.key?(:public)
+      box.vm.network "public_network", boxconfig[:public]
+    end
+    box.vm.provision "shell", inline: <<-SHELL
+    mkdir -p ~root/.ssh
+      cp ~vagrant/.ssh/auth* ~root/.ssh
+    SHELL
+    
+    case boxname.to_s
+      when "vm1"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
+          echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.254\nIPADDR=192.168.50.2\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
+          systemctl restart network
+      SHELL
+      when "vm2"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          modprobe --first-time bonding
+          echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+          #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
+          echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.254\nIPADDR=192.168.60.2\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
+          systemctl restart network
+      SHELL
+      when "vm2"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          modprobe --first-time bonding
+          echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+          #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
+          echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.254\nIPADDR=192.168.70.2\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
+          systemctl restart network
+      SHELL
+
+    end
+  end
+end
+end
