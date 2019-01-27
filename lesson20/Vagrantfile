@@ -1,3 +1,5 @@
+
+
 # -*- mode: ruby -*-
 # vim: set ft=ruby :
 
@@ -59,6 +61,9 @@ Vagrant.configure("2") do |config|
         box.vm.provision "shell", run: "always", inline: <<-SHELL
           #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.254\nIPADDR=192.168.50.2\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
+          echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.254\nIPADDR=192.168.60.3\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
+          echo "net.ipv4.conf.eth1/50.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.eth2/60.forwarding = 1" >> /etc/sysctl.conf
           systemctl restart network
       SHELL
       when "vm2"
@@ -67,6 +72,9 @@ Vagrant.configure("2") do |config|
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.254\nIPADDR=192.168.60.2\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
+          echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.254\nIPADDR=192.168.70.3\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
+          echo "net.ipv4.conf.eth1/60.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.eth2/70.forwarding = 1" >> /etc/sysctl.conf
           systemctl restart network
       SHELL
       when "vm2"
@@ -75,6 +83,9 @@ Vagrant.configure("2") do |config|
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.254\nIPADDR=192.168.70.2\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
+          echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.254\nIPADDR=192.168.50.3\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
+          echo "net.ipv4.conf.eth1/70.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.eth2/50.forwarding = 1" >> /etc/sysctl.conf
           systemctl restart network
       SHELL
 
