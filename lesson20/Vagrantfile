@@ -59,36 +59,38 @@ Vagrant.configure("2") do |config|
     case boxname.to_s
       when "vm1"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.254\nIPADDR=192.168.50.2\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
           echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.254\nIPADDR=192.168.60.3\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
           echo "net.ipv4.conf.eth1/50.forwarding = 1" >> /etc/sysctl.conf
           echo "net.ipv4.conf.eth2/60.forwarding = 1" >> /etc/sysctl.conf
+          yum install quagga -y
+          cp -ru /vagrant/vm1/zebra.conf /etc/quagga/zebra.conf
+          cp -ru /vagrant/vm1/ospfd.conf /etc/quagga/ospfd.conf; chown quagga:quaggavt /etc/quagga/ospfd.conf
+          setsebool zebra_write_config=on
+          systemctl enable zebra ospfd
+          systemctl start zebra ospfd
           systemctl restart network
       SHELL
       when "vm2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          modprobe --first-time bonding
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
-          #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.254\nIPADDR=192.168.60.2\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
           echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.254\nIPADDR=192.168.70.3\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
           echo "net.ipv4.conf.eth1/60.forwarding = 1" >> /etc/sysctl.conf
           echo "net.ipv4.conf.eth2/70.forwarding = 1" >> /etc/sysctl.conf
+          yum install quagga -y
           systemctl restart network
       SHELL
       when "vm2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          modprobe --first-time bonding
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
-          #iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.254\nIPADDR=192.168.70.2\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
           echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.254\nIPADDR=192.168.50.3\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
           echo "net.ipv4.conf.eth1/70.forwarding = 1" >> /etc/sysctl.conf
           echo "net.ipv4.conf.eth2/50.forwarding = 1" >> /etc/sysctl.conf
+          yum install quagga -y
           systemctl restart network
       SHELL
-
     end
   end
 end
