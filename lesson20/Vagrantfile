@@ -8,24 +8,40 @@ MACHINES = {
     :box_name => "centos/7",
     #:public => {:ip => '10.10.10.1', :adapter => 1},
     :net => [
-      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "test-net"},
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.1.2', adapter: 3, netmask: "", virtualbox__intnet: "area1"},
     ]
   },
   :vm2 => {
     :box_name => "centos/7",
     #:public => {:ip => '10.10.10.1', :adapter => 1},
     :net => [
-      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "test-net"},
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.2.2', adapter: 3, netmask: "", virtualbox__intnet: "area2"},
     ]
   },
   :vm3 => {
     :box_name => "centos/7",
     #:public => {:ip => '10.10.10.1', :adapter => 1},
     :net => [
-      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "test-net"},
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.3.2', adapter: 3, netmask: "", virtualbox__intnet: "area3"},
     ]
   },
-
+  :client1 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '10.10.3.3', adapter: 2, netmask: "", virtualbox__intnet: "area3"},
+    ]
+  },
+  :client2 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '10.10.3.3', adapter: 2, netmask: "", virtualbox__intnet: "area3"},
+    ]
+  },
 }
 
 Vagrant.configure("2") do |config|
@@ -65,7 +81,8 @@ Vagrant.configure("2") do |config|
           echo "net.ipv4.conf.eth2/60.forwarding = 1" >> /etc/sysctl.conf
           yum install quagga -y
           cp -ru /vagrant/vm1/zebra.conf /etc/quagga/zebra.conf
-          cp -ru /vagrant/vm1/ospfd.conf /etc/quagga/ospfd.conf; chown quagga:quaggavt /etc/quagga/ospfd.conf
+          cp -ru /vagrant/vm1/daemons /etc/quagga/daemons          
+          cp -ru /vagrant/vm1/ospfd.conf /etc/quagga/ospfd.conf; chown -R quagga:quaggavt /etc/quagga/*
           setsebool zebra_write_config=on
           systemctl enable zebra ospfd
           systemctl start zebra ospfd
@@ -79,6 +96,12 @@ Vagrant.configure("2") do |config|
           echo "net.ipv4.conf.eth1/60.forwarding = 1" >> /etc/sysctl.conf
           echo "net.ipv4.conf.eth2/70.forwarding = 1" >> /etc/sysctl.conf
           yum install quagga -y
+          cp -ru /vagrant/vm1/zebra.conf /etc/quagga/zebra.conf
+          cp -ru /vagrant/vm1/daemons /etc/quagga/daemons
+          cp -ru /vagrant/vm1/ospfd.conf /etc/quagga/ospfd.conf; chown -R quagga:quaggavt /etc/quagga/*
+          setsebool zebra_write_config=on
+          systemctl enable zebra ospfd
+          systemctl start zebra ospfd
           systemctl restart network
       SHELL
       when "vm2"
@@ -89,6 +112,12 @@ Vagrant.configure("2") do |config|
           echo "net.ipv4.conf.eth1/70.forwarding = 1" >> /etc/sysctl.conf
           echo "net.ipv4.conf.eth2/50.forwarding = 1" >> /etc/sysctl.conf
           yum install quagga -y
+          cp -ru /vagrant/vm1/zebra.conf /etc/quagga/zebra.conf
+          cp -ru /vagrant/vm1/daemons /etc/quagga/daemons
+          cp -ru /vagrant/vm1/ospfd.conf /etc/quagga/ospfd.conf; chown -R quagga:quaggavt /etc/quagga/*
+          setsebool zebra_write_config=on
+          systemctl enable zebra ospfd
+          systemctl start zebra ospfd
           systemctl restart network
       SHELL
     end
