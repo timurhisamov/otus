@@ -108,3 +108,43 @@ details partner lacp pdu:
 
 </p>
 </details>
+
+### Ответ из Slack для active-active
+
+<details><summary>спойлер</summary>
+<p>
+
+bond  чтобы заработал fault tolerance
+```more /etc/sysconfig/network-scripts/ifcfg-bond0 
+DEVICE=bond0
+ONBOOT=yes
+TYPE=Bond
+BONDING_MASTER=yes
+MTU=9000
+IPADDR=192.168.255.2
+PREFIX=30
+GATEWAY=192.168.255.1
+BOOTPROTO=static
+USERCTL=no
+BONDING_OPTS="mode=1 miimon=100 fail_over_mac=1"```
+
+```more /etc/sysconfig/network-scripts/ifcfg-eth1 
+DEVICE=eth1
+ONBOOT=yes
+SLAVE=yes
+MASTER=bond0
+MTU=9000
+BOOTPROTO=none
+USERCTL=no```
+
+```more /etc/sysconfig/network-scripts/ifcfg-eth2
+DEVICE=eth2
+ONBOOT=yes
+SLAVE=yes
+MASTER=bond0
+MTU=9000
+BOOTPROTO=none
+USERCTL=no```
+
+</p>
+</details>
