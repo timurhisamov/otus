@@ -32,3 +32,5 @@
 
 [18. Docker](lesson18)
 
+[19. Сетевые пакеты. VLAN'ы. LACP.](lesson19)
+
