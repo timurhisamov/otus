@@ -156,4 +156,31 @@
 
 - Сделать один из линков "дорогим", но что бы при этом роутинг был симметричным
 
+#### Изменил на vm1 cost = 300 на интерфесе eth1.70
 
+```bash
+
+[root@client1 ~]# tracepath 10.10.3.3
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  gateway                                               0.451ms 
+ 1:  gateway                                               0.387ms 
+ 2:  192.168.50.3                                          2.827ms 
+ 3:  192.168.70.2                                          0.924ms asymm  2 
+ 4:  10.10.3.3                                             1.357ms reached
+     Resume: pmtu 1500 hops 4 back 3 
+
+
+```
+
+```bash
+
+[vagrant@client2 ~]$ tracepath 10.10.1.3
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  gateway                                               1.010ms 
+ 1:  gateway                                               0.534ms 
+ 2:  192.168.50.2                                          0.727ms asymm  3 
+ 3:  10.10.1.3                                             1.005ms reached
+     Resume: pmtu 1500 hops 3 back 4 
+
+
+```
