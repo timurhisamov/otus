@@ -76,6 +76,7 @@ Vagrant.configure("2") do |config|
       when "vm1"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
           echo "net.ipv4.conf.all.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.rp_filter = 0 \n net.ipv4.conf.eth1/50.rp_filter = 0 \n net.ipv4.conf.eth1/70.rp_filter = 0 \n net.ipv4.conf.eth1.rp_filter = 0" >> /etc/sysctl.conf
           echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.255\nIPADDR=192.168.50.2\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
           echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.255\nIPADDR=192.168.70.3\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
           yum install quagga -y
@@ -88,7 +89,8 @@ Vagrant.configure("2") do |config|
       SHELL
       when "vm2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.rp_filter = 0 \n net.ipv4.conf.eth1/50.rp_filter = 0 \n net.ipv4.conf.eth1/60.rp_filter = 0 \n net.ipv4.conf.eth1.rp_filter = 0" >> /etc/sysctl.conf
           echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.255\nIPADDR=192.168.60.2\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
           echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.255\nIPADDR=192.168.50.3\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
           yum install quagga -y
@@ -101,7 +103,8 @@ Vagrant.configure("2") do |config|
       SHELL
       when "vm3"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.rp_filter = 0 \n net.ipv4.conf.eth1/60.rp_filter = 0 \n net.ipv4.conf.eth1/70.rp_filter = 0 \n net.ipv4.conf.eth1.rp_filter = 0" >> /etc/sysctl.conf
           echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.255\nIPADDR=192.168.70.2\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
           echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.255\nIPADDR=192.168.60.3\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
           yum install quagga -y

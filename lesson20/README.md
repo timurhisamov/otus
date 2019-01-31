@@ -151,16 +151,44 @@
  3:  10.10.3.3                                             0.980ms reached
      Resume: pmtu 1500 hops 3 back 3 
 ```
+```bash
+[vagrant@client2 ~]$ tracepath 10.10.1.3
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  gateway                                               0.529ms 
+ 1:  gateway                                               0.540ms 
+ 2:  192.168.70.3                                          0.563ms 
+ 3:  10.10.1.3                                             1.444ms reached
+     Resume: pmtu 1500 hops 3 back 3 
+```
 
 ### Изобразить ассиметричный роутинг
 
-- Сделать один из линков "дорогим", но что бы при этом роутинг был симметричным
-
-#### Изменил на vm1 cost = 300 на интерфесе eth1.70
+Чтобы ассиметричный роутинг работал, необходимо изменить параметр ядра rp_filter. Я прописал его в Vagrantfile.
 
 ```bash
+[root@vm1 ~]# sysctl -a | grep rp_filter
+net.ipv4.conf.all.arp_filter = 0
+net.ipv4.conf.all.rp_filter = 0
+net.ipv4.conf.default.arp_filter = 0
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.conf.eth0.arp_filter = 0
+net.ipv4.conf.eth0.rp_filter = 1
+net.ipv4.conf.eth1.arp_filter = 0
+net.ipv4.conf.eth1.rp_filter = 0
+net.ipv4.conf.eth1/50.arp_filter = 0
+net.ipv4.conf.eth1/50.rp_filter = 0
+net.ipv4.conf.eth1/70.arp_filter = 0
+net.ipv4.conf.eth1/70.rp_filter = 0
+net.ipv4.conf.eth2.arp_filter = 0
+net.ipv4.conf.eth2.rp_filter = 1
+net.ipv4.conf.lo.arp_filter = 0
+net.ipv4.conf.lo.rp_filter = 0
+```
 
-[root@client1 ~]# tracepath 10.10.3.3
+#### Меняем стоимость пути на vm1 cost = 300 на интерфесе eth1.70
+
+```bash
+[vagrant@client1 ~]$ tracepath 10.10.3.3
  1?: [LOCALHOST]                                         pmtu 1500
  1:  gateway                                               0.451ms 
  1:  gateway                                               0.387ms 
@@ -169,11 +197,9 @@
  4:  10.10.3.3                                             1.357ms reached
      Resume: pmtu 1500 hops 4 back 3 
 
-
 ```
 
 ```bash
-
 [vagrant@client2 ~]$ tracepath 10.10.1.3
  1?: [LOCALHOST]                                         pmtu 1500
  1:  gateway                                               1.010ms 
@@ -181,6 +207,30 @@
  2:  192.168.50.2                                          0.727ms asymm  3 
  3:  10.10.1.3                                             1.005ms reached
      Resume: pmtu 1500 hops 3 back 4 
+```
 
+### Сделать один из линков "дорогим", но что бы при этом роутинг был симметричным
 
+#### Меняем стоимость пути на vm3 cost = 300 на интерфесе eth1.70
+
+```bash
+[vagrant@client1 ~]$ tracepath 10.10.3.3
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  gateway                                               0.600ms 
+ 1:  gateway                                               0.755ms 
+ 2:  192.168.50.3                                          0.903ms 
+ 3:  192.168.60.3                                          1.206ms 
+ 4:  10.10.3.3                                             7.147ms reached
+     Resume: pmtu 1500 hops 4 back 4 
+```
+
+```bash
+[vagrant@client2 ~]$ tracepath 10.10.1.3
+ 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  gateway                                               0.526ms 
+ 1:  gateway                                               0.596ms 
+ 2:  192.168.60.2                                          0.574ms 
+ 3:  192.168.50.2                                          1.022ms 
+ 4:  10.10.1.3                                             1.503ms reached
+     Resume: pmtu 1500 hops 4 back 4 
 ```
