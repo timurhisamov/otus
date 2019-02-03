@@ -12,5 +12,5 @@ $ORIGIN newdns.lab.
                 IN      NS      ns02.dns.lab.
 
 ; DNS Servers
-www            IN      CNAME       web1.dns.lab.
-www            IN      CNAME       web2.dns.lab.
+www            IN      A       192.168.50.15
+www            IN      A       192.168.50.16
