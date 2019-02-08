@@ -3,3 +3,4 @@
 proxy
 .DS_Store
 *.swp
+lesson22/vagrant-bind/\.vagrant/
