@@ -1,0 +1,33 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "centos/7"
+
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+  
+  #config.vm.provision "ansible" do |ansible|
+  #  ansible.verbose = "v"
+  #  ansible.playbook = "provisioning/playbook.yml"
+  #  ansible.become = "become"
+  #end
+
+  config.vm.provider "virtualbox" do |v|
+	  v.memory = 256
+  end
+
+  config.vm.define "cl1" do |cl1|
+    cl1.vm.network "private_network", ip: "192.168.50.10", virtualbox__intnet: "int"
+    cl1.vm.hostname = "cl1"
+  end
+
+  config.vm.define "cl2" do |cl2|
+    cl2.vm.network "private_network", ip: "192.168.50.11", virtualbox__intnet: "int"
+    cl2.vm.hostname = "cl2"
+  end
+
+end
