@@ -1,33 +1,75 @@
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
+# vim: set ft=ruby :
 
-Vagrant.configure(2) do |config|
-  config.vm.box = "centos/7"
+MACHINES = {
+:vm1 => {
+  :box_name => "centos/7",
+  :net => [
+    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "internal-net"},
+  ]
+},
+:vm2 => {
+  :box_name => "centos/7",
+  :net => [
+    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "internal-net"},
+  ]
+},
+}
+
+Vagrant.configure("2") do |config|
 
   if Vagrant.has_plugin?("vagrant-proxyconf")
     config.proxy.http     = ENV['http_proxy']
     config.proxy.https    = ENV['https_proxy']
     config.proxy.no_proxy = ENV['no_proxy']
   end
-  
-  #config.vm.provision "ansible" do |ansible|
-  #  ansible.verbose = "v"
-  #  ansible.playbook = "provisioning/playbook.yml"
-  #  ansible.become = "become"
-  #end
+  MACHINES.each do |boxname, boxconfig|
+  config.vbguest.auto_update = false
+  config.vm.box_check_update = false
+  config.vm.define boxname do |box|
+    box.vm.box = boxconfig[:box_name]
+    box.vm.host_name = boxname.to_s
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 256      
+    end
+    boxconfig[:net].each do |ipconf|
+      box.vm.network "private_network", ipconf
+    end
+    
+    if boxconfig.key?(:public)
+      box.vm.network "public_network", boxconfig[:public]
+    end
+    box.vm.provision "shell", inline: <<-SHELL
+    mkdir -p ~root/.ssh
+      cp ~vagrant/.ssh/auth* ~root/.ssh
+    SHELL
+    
+    case boxname.to_s
+      when "vm1"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        yum install -y epel-release
+        yum install -y openvpn wget unzip zip
+        adduser ca
+        su ca
+        cd
+        wget https://github.com/OpenVPN/easy-rsa/archive/master.zip
+        unzip master.zip
+        cd /home/ca/easy-rsa-master/easyrsa3
+        ./easyrsa init-pki
+        ./easyrsa build-ca
 
-  config.vm.provider "virtualbox" do |v|
-	  v.memory = 256
+      SHELL
+      when "vm2"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        ip tuntap add name tap0 mode tap
+        ip addr add 10.0.0.3/24 dev tap0
+        ip link add br0 type bridge
+        ip link set tap0 master br0
+        ip link set eth1 master br0
+        ip link set tap0 up
+        ip link set br0 up
+      SHELL
+    end
   end
-
-  config.vm.define "cl1" do |cl1|
-    cl1.vm.network "private_network", ip: "192.168.50.10", virtualbox__intnet: "int"
-    cl1.vm.hostname = "cl1"
-  end
-
-  config.vm.define "cl2" do |cl2|
-    cl2.vm.network "private_network", ip: "192.168.50.11", virtualbox__intnet: "int"
-    cl2.vm.hostname = "cl2"
-  end
-
+end
 end
