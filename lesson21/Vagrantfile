@@ -5,13 +5,13 @@ MACHINES = {
 :vm1 => {
   :box_name => "centos/7",
   :net => [
-    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "internal-net"},
+    {ip: '172.60.98.1', adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "internal-net"},
   ]
 },
 :vm2 => {
   :box_name => "centos/7",
   :net => [
-    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "internal-net"},
+    {ip: '172.60.98.5', adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "internal-net"},
   ]
 },
 }
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
     config.proxy.no_proxy = ENV['no_proxy']
   end
   MACHINES.each do |boxname, boxconfig|
-  config.vbguest.auto_update = false
+  config.vbguest.auto_update = true
   config.vm.box_check_update = false
   config.vm.define boxname do |box|
     box.vm.box = boxconfig[:box_name]
@@ -47,17 +47,21 @@ Vagrant.configure("2") do |config|
     case boxname.to_s
       when "vm1"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-        ip tuntap add tap0 mode tap
-        ip address add 10.0.0.1/30 broadcast 10.0.0.3 dev tap0
-        ip link add br0 type bridge
-        ip link set dev tap0 master br0
+        yum install epel-release -y
+        yum install openvpn iperf3 -y
+        cp /vagrant/static.key /etc/openvpn/static.key
+        echo "port 1194\nproto udp\ndev tap\nifconfig 10.0.0.1 255.255.255.240\ntopology subnet\nsecret static.key\ncomp-lzo\nstatus status /var/log/openvpn-status.log\nlog /var/log/openvpn.log\nverb 3"> /etc/openvpn/server.conf
+        systemctl start openvpn@server
+        iperf3 -s
       SHELL
       when "vm2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-        ip tuntap add tap0 mode tap
-        ip address add 10.0.0.1/30 broadcast 10.0.0.3 dev tap0
-        ip link add br0 type bridge
-        ip link set dev tap0 master br0
+        yum install epel-release -y
+        yum install openvpn -y
+        cp /vagrant/static.key /etc/openvpn/static.key
+        echo "dev tap\nproto udp\nremote 172.60.98.1 1194\nifconfig 10.0.0.2 255.255.255.240\ntopology subnet\nsecret static.key\ncomp-lzo\nverb 3\nstatus /var/log/openvpn-status.log\nlog /var/log/openvpn.log"> /etc/openvpn/client.conf
+        systemctl start openvpn@client
+        iperf3 -c 10.0.0.1 -t 30 -i 2
       SHELL
     end
   end
