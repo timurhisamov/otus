@@ -50,16 +50,16 @@ Vagrant.configure("2") do |config|
         yum install epel-release -y
         yum install openvpn iperf3 -y
         cp /vagrant/static.key /etc/openvpn/static.key
-        echo "port 1194\nproto udp\ndev tap\nifconfig 10.0.0.1 255.255.255.240\ntopology subnet\nsecret static.key\ncomp-lzo\nstatus status /var/log/openvpn-status.log\nlog /var/log/openvpn.log\nverb 3"> /etc/openvpn/server.conf
+        echo "port 1194\nproto udp\ndev tun\nifconfig 10.0.0.1 255.255.255.240\nsecret static.key\ncomp-lzo\nstatus status /var/log/openvpn-status.log\nlog /var/log/openvpn.log\nverb 3"> /etc/openvpn/server.conf
         systemctl start openvpn@server
-        iperf3 -s
+        iperf3 -s &
       SHELL
       when "vm2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
         yum install epel-release -y
-        yum install openvpn -y
+        yum install openvpn iperf3 -y
         cp /vagrant/static.key /etc/openvpn/static.key
-        echo "dev tap\nproto udp\nremote 172.60.98.1 1194\nifconfig 10.0.0.2 255.255.255.240\ntopology subnet\nsecret static.key\ncomp-lzo\nverb 3\nstatus /var/log/openvpn-status.log\nlog /var/log/openvpn.log"> /etc/openvpn/client.conf
+        echo "dev tun\nproto udp\nremote 172.60.98.1 1194\nifconfig 10.0.0.2 255.255.255.240\nsecret static.key\ncomp-lzo\nverb 3\nstatus /var/log/openvpn-status.log\nlog /var/log/openvpn.log"> /etc/openvpn/client.conf
         systemctl start openvpn@client
         iperf3 -c 10.0.0.1 -t 30 -i 2
       SHELL
