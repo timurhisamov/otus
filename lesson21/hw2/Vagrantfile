@@ -1,0 +1,113 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+:openvpnserver => {
+  :box_name => "centos/7",
+  :net => [
+    {ip: '172.60.98.1', adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "internal-net"},
+  ]
+},
+:openvpnclient => {
+  :box_name => "centos/7",
+  :net => [
+    {ip: '172.60.98.2', adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "internal-net"},
+  ]
+}
+}
+
+Vagrant.configure("2") do |config|
+
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+  MACHINES.each do |boxname, boxconfig|
+  config.vm.synced_folder "./", "/vagrant", type: "rsync", rsync__exclude: ".git/"
+  config.vbguest.auto_update = true
+  config.vm.box_check_update = true
+  config.vm.define boxname do |box|
+    box.vm.box = boxconfig[:box_name]
+    box.vm.host_name = boxname.to_s
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 256      
+    end
+    boxconfig[:net].each do |ipconf|
+      box.vm.network "private_network", ipconf
+    end
+    
+    if boxconfig.key?(:public)
+      box.vm.network "public_network", boxconfig[:public]
+    end
+    box.vm.provision "shell", inline: <<-SHELL
+    mkdir -p ~root/.ssh
+      cp ~vagrant/.ssh/auth* ~root/.ssh
+    SHELL
+    
+    case boxname.to_s
+      when "openvpnserver"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        setenforce 0
+        echo net.ipv4.conf.all.forwarding=1  >> /etc/sysctl.conf
+        echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
+        sysctl -p /etc/sysctl.conf
+        systemctl restart network
+        yum install epel-release -y
+        yum install openvpn iperf3 easy-rsa -y
+        cd /usr/share/easy-rsa/3
+        ## server
+        echo "yes" | ./easyrsa init-pki
+        echo "openvpnserver" | ./easyrsa build-ca nopass
+        echo "openvpnserver" | ./easyrsa gen-req server nopass
+        echo "yes" | ./easyrsa sign-req server server
+        ./easyrsa gen-dh
+        openvpn --genkey --secret ta.key
+        cp pki/ca.crt /etc/openvpn/ca.crt
+        cp pki/dh.pem /etc/openvpn/dh.pem
+        cp pki/issued/server.crt /etc/openvpn/server.crt
+        cp pki/private/server.key /etc/openvpn/server.key
+        # client
+        echo "client" | ./easyrsa gen-req client nopass
+        echo "yes" | ./easyrsa sign-req client client
+        echo 'port 13555 # я предпочитаю использовать нестандартные порты для работы
+        proto udp # протокол может быт и tcp, если есть необходимость в этом
+        dev tun
+        ca /etc/openvpn/ca.crt
+        cert /etc/openvpn/server.crt
+        key /etc/openvpn/server.key
+        dh /etc/openvpn/dh.pem
+        server 192.168.0.0 255.255.255.0 # подсеть для туннеля, может быть любой
+        route 172.60.98.0 255.255.255.0 # указываем подсеть, к которой будем обращаться через vpn
+        push "route 172.60.98.0 255.255.255.0" # передаем маршрут клиентам
+        ifconfig-pool-persist ipp.txt # файл с записями соответствий client - ip
+        client-to-client # позволяет клиентам openvpn подключаться друг к другу
+        client-config-dir /etc/openvpn/ccd # директория с индивидуальными настройками клиентов
+        keepalive 10 120
+        comp-lzo
+        persist-key
+        persist-tun
+        status /var/log/openvpn/openvpn-status.log
+        log /var/log/openvpn/openvpn.log
+        verb 3' > /etc/openvpn/server.conf
+        mkdir /etc/openvpn/ccd && mkdir /var/log/openvpn
+        echo "iroute 172.60.98.0 255.255.255.0" > /etc/openvpn/ccd/client
+        yes | cp /etc/openvpn/ca.crt /vagrant/client/
+        yes | cp /usr/share/easy-rsa/3/pki/issued/client.crt /vagrant/client/
+        yes | cp /usr/share/easy-rsa/3/pki/private/client.key /vagrant/client/
+        systemctl start openvpn@server
+      SHELL
+      when "openvpnclient"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        setenforce 0
+        echo net.ipv4.conf.all.forwarding=1  >> /etc/sysctl.conf
+        echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
+        sysctl -p /etc/sysctl.conf
+        yum install epel-release -y
+        yum install openvpn iperf3 easy-rsa -y
+        cp /vagrant/client/ /etc/openvpn/
+      SHELL
+    end
+  end
+end
+end
