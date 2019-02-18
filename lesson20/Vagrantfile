@@ -1,0 +1,131 @@
+
+
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+  :vm1 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.1.254', adapter: 3, netmask: "255.255.255.0", virtualbox__intnet: "area1"},
+    ]
+  },
+  :vm2 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.2.254', adapter: 3, netmask: "255.255.255.0", virtualbox__intnet: "area2"},
+    ]
+  },
+  :vm3 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.3.254', adapter: 3, netmask: "255.255.255.0", virtualbox__intnet: "area3"},
+    ]
+  },
+  :client1 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area1"},
+    ]
+  },
+  :client2 => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area3"},
+    ]
+  },
+}
+
+Vagrant.configure("2") do |config|
+
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+  MACHINES.each do |boxname, boxconfig|
+  config.vbguest.auto_update = false
+  config.vm.box_check_update = false
+  config.vm.define boxname do |box|
+    box.vm.box = boxconfig[:box_name]
+    box.vm.host_name = boxname.to_s
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 256      
+    end
+    boxconfig[:net].each do |ipconf|
+      box.vm.network "private_network", ipconf
+    end
+    
+    if boxconfig.key?(:public)
+      box.vm.network "public_network", boxconfig[:public]
+    end
+    box.vm.provision "shell", inline: <<-SHELL
+    mkdir -p ~root/.ssh
+      cp ~vagrant/.ssh/auth* ~root/.ssh
+    SHELL
+    
+    case boxname.to_s
+      when "vm1"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          echo "net.ipv4.conf.all.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.rp_filter = 0 \n net.ipv4.conf.eth1/50.rp_filter = 0 \n net.ipv4.conf.eth1/70.rp_filter = 0 \n net.ipv4.conf.eth1.rp_filter = 0" >> /etc/sysctl.conf
+          echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.255\nIPADDR=192.168.50.2\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
+          echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.255\nIPADDR=192.168.70.3\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
+          yum install quagga -y
+          cp -ru /vagrant/vm1/zebra.conf /etc/quagga/zebra.conf
+          cp -ru /vagrant/vm1/daemons /etc/quagga/daemons          
+          cp -ru /vagrant/vm1/ospfd.conf /etc/quagga/ospfd.conf; chown -R quagga:quaggavt /etc/quagga/*
+          systemctl enable zebra ospfd
+          systemctl start zebra ospfd
+          systemctl restart network
+      SHELL
+      when "vm2"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          echo "net.ipv4.conf.all.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.rp_filter = 0 \n net.ipv4.conf.eth1/50.rp_filter = 0 \n net.ipv4.conf.eth1/60.rp_filter = 0 \n net.ipv4.conf.eth1.rp_filter = 0" >> /etc/sysctl.conf
+          echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.255\nIPADDR=192.168.60.2\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
+          echo "DEVICE=eth1.50\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.50.255\nIPADDR=192.168.50.3\nNETMASK=255.255.255.0\nNETWORK=192.168.50.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.50
+          yum install quagga -y
+          cp -ru /vagrant/vm2/zebra.conf /etc/quagga/zebra.conf
+          cp -ru /vagrant/vm2/daemons /etc/quagga/daemons
+          cp -ru /vagrant/vm2/ospfd.conf /etc/quagga/ospfd.conf; chown -R quagga:quaggavt /etc/quagga/*
+          systemctl enable zebra ospfd
+          systemctl start zebra ospfd
+          systemctl restart network
+      SHELL
+      when "vm3"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          echo "net.ipv4.conf.all.forwarding = 1" >> /etc/sysctl.conf
+          echo "net.ipv4.conf.all.rp_filter = 0 \n net.ipv4.conf.eth1/60.rp_filter = 0 \n net.ipv4.conf.eth1/70.rp_filter = 0 \n net.ipv4.conf.eth1.rp_filter = 0" >> /etc/sysctl.conf
+          echo "DEVICE=eth1.70\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.70.255\nIPADDR=192.168.70.2\nNETMASK=255.255.255.0\nNETWORK=192.168.70.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.70
+          echo "DEVICE=eth1.60\nVLAN=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=192.168.60.255\nIPADDR=192.168.60.3\nNETMASK=255.255.255.0\nNETWORK=192.168.60.0" > /etc/sysconfig/network-scripts/ifcfg-eth1.60
+          yum install quagga -y
+          cp -ru /vagrant/vm3/zebra.conf /etc/quagga/zebra.conf
+          cp -ru /vagrant/vm3/daemons /etc/quagga/daemons
+          cp -ru /vagrant/vm3/ospfd.conf /etc/quagga/ospfd.conf; chown -R quagga:quaggavt /etc/quagga/*
+          systemctl enable zebra ospfd
+          systemctl start zebra ospfd
+          systemctl restart network
+        SHELL
+      when "client1"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          echo "DEVICE=eth1\nDEFROUTE=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=10.10.1.255\nIPADDR=10.10.1.3\nNETMASK=255.255.255.0\nNETWORK=10.10.1.0\nGATEWAY=10.10.1.254" > /etc/sysconfig/network-scripts/ifcfg-eth1
+          systemctl restart network
+          SHELL
+      when "client2"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+          echo "DEVICE=eth1\nDEFROTUE=yes\nBOOTPROTO=none\nNM_CONTROLLED=no\nONBOOT=yes\nIPV6INIT=no\nBROADCAST=10.10.3.255\nIPADDR=10.10.3.3\nNETMASK=255.255.255.0\nNETWORK=10.10.3.0\nGATEWAY=10.10.3.254" > /etc/sysconfig/network-scripts/ifcfg-eth1
+          systemctl restart network
+        SHELL
+    end
+  end
+end
+end
