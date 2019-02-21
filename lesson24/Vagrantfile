@@ -1,0 +1,53 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+:web => {
+  :box_name => "centos/7",
+  :net => [
+  ]
+},
+}
+
+Vagrant.configure("2") do |config|
+
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+  MACHINES.each do |boxname, boxconfig|
+  config.vbguest.auto_update = false
+  config.vm.box_check_update = false
+  config.vm.synced_folder "./", "/vagrant", type: "rsync", rsync__exclude: ".git/"
+  config.vm.define boxname do |box|
+    box.vm.box = boxconfig[:box_name]
+    box.vm.host_name = boxname.to_s
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 256      
+    end
+    boxconfig[:net].each do |ipconf|
+      box.vm.network "private_network", ipconf
+    end
+    
+    if boxconfig.key?(:public)
+      box.vm.network "public_network", boxconfig[:public]
+    end
+    box.vm.provision "shell", inline: <<-SHELL
+    mkdir -p ~root/.ssh
+      cp ~vagrant/.ssh/auth* ~root/.ssh
+    SHELL
+    
+    case boxname.to_s
+      when "web"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        yum install epel-release -y
+        yum install nginx -y
+        cp -aR /vagrant/nginx.conf /etc/nginx/nginx.conf
+        systemctl start nginx
+      SHELL
+    end
+  end
+end
+end
+
