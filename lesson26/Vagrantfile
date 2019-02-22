@@ -1,0 +1,65 @@
+
+
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+MACHINES = {
+  :master => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.1.254', adapter: 3, netmask: "255.255.255.0", virtualbox__intnet: "area1"},
+    ]
+  },
+  :slave => {
+    :box_name => "centos/7",
+    #:public => {:ip => '10.10.10.1', :adapter => 1},
+    :net => [
+      {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "area0"},
+      {ip: '10.10.2.254', adapter: 3, netmask: "255.255.255.0", virtualbox__intnet: "area2"},
+    ]
+  }
+}
+
+Vagrant.configure("2") do |config|
+
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = ENV['http_proxy']
+    config.proxy.https    = ENV['https_proxy']
+    config.proxy.no_proxy = ENV['no_proxy']
+  end
+  MACHINES.each do |boxname, boxconfig|
+  config.vbguest.auto_update = false
+  config.vm.box_check_update = false
+  config.vm.define boxname do |box|
+    box.vm.box = boxconfig[:box_name]
+    box.vm.host_name = boxname.to_s
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 256      
+    end
+    boxconfig[:net].each do |ipconf|
+      box.vm.network "private_network", ipconf
+    end
+    
+    if boxconfig.key?(:public)
+      box.vm.network "public_network", boxconfig[:public]
+    end
+    box.vm.provision "shell", inline: <<-SHELL
+    mkdir -p ~root/.ssh
+      cp ~vagrant/.ssh/auth* ~root/.ssh
+    SHELL
+    
+    case boxname.to_s
+      when "master"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        
+      SHELL
+      when "slave"
+        box.vm.provision "shell", run: "always", inline: <<-SHELL
+        
+      SHELL
+    end
+  end
+end
+end
