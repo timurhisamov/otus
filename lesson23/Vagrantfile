@@ -12,8 +12,8 @@ MACHINES = {
 :centralRouter => {
   :box_name => "centos/7",
   :net => [
-    {ip: '192.168.255.2', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net"},
-    {ip: '192.168.255.5', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
+    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "router-net"},
+    {ip: '192.168.255.5', adapter: 3, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
   ]
 },
 :inetRouter2 => {
@@ -61,7 +61,8 @@ Vagrant.configure("2") do |config|
     case boxname.to_s
       when "inetRouter"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          echo "DEVICE=eth1\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.1\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth1
+          echo "DEVICE=eth2\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.1\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth2
+          systemctl restart network
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           sysctl -p
@@ -91,16 +92,18 @@ Vagrant.configure("2") do |config|
       SHELL
       when "centralRouter"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
+          yum install nmap -y
           echo "DEFROUTE=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0 
+          systemctl restart network
           echo "DEVICE=eth1\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.2\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes\nGATEWAY=192.168.255.1\nDEFROUTE=yes" > /etc/sysconfig/network-scripts/ifcfg-eth1
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           sysctl -p
           echo "#!/bin/bash" > /root/knock.sh
-          echo "HOST=$1" >> /root/knock.sh
+          echo "HOST=\$1" >> /root/knock.sh
           echo "shift" >> /root/knock.sh
-          echo "for ARG in "$@"" >> /root/knock.sh
+          echo "for ARG in \"$@\"" >> /root/knock.sh
           echo "do" >> /root/knock.sh
-          echo "   nmap -Pn --host_timeout 100 --max-retries 0 -p $ARG $HOST" >> /root/knock.sh
+          echo "   nmap -Pn --host_timeout 100 --max-retries 0 -p \$ARG \$HOST" >> /root/knock.sh
           echo "done" >> /root/knock.sh
           chmod +x /root/knock.sh
       SHELL
