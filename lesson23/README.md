@@ -5,7 +5,7 @@
 ```bash
 Сценарии iptables
 1) реализовать knocking port
-- centralRouter может попасть на ssh inetrRouter через knock скрипт
+- centralRouter может попасть на ssh inetRouter через knock скрипт
 пример в материалах
 2) добавить inetRouter2, который виден(маршрутизируется) с хоста
 3) запустить nginx на centralServer

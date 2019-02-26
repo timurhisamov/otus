@@ -4,22 +4,16 @@
 MACHINES = {
 :inetRouter => {
   :box_name => "centos/7",
-  #:public => {:ip => '10.10.10.1', :adapter => 1},
+  :public => {:adapter => 2, use_dhcp_assigned_default_route: true, bridge: "enp4s0"},
   :net => [
-    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "router-net"},
     {ip: '', adapter: 3, netmask: "", virtualbox__intnet: "router-net"},
   ]
 },
 :centralRouter => {
   :box_name => "centos/7",
   :net => [
-    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "router-net"},
-    {ip: '192.168.255.5', adapter: 3, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
-    {ip: '192.168.255.9', adapter: 4, netmask: "255.255.255.252", virtualbox__intnet: "router-net2"},
-    {ip: '192.168.0.1', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "central-net"},
-    {ip: '', adapter: 6, netmask: "", virtualbox__intnet: "router-net"},
-    #{ip: '192.168.0.33', adapter: 6, netmask: "255.255.255.192", virtualbox__intnet: "hw-net"},
-    #{ip: '192.168.0.65', adapter: 7, netmask: "255.255.255.192", virtualbox__intnet: "wifi-net"},
+    {ip: '192.168.255.2', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net"},
+    {ip: '192.168.255.5', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
   ]
 },
 :inetRouter2 => {
@@ -67,20 +61,53 @@ Vagrant.configure("2") do |config|
     case boxname.to_s
       when "inetRouter"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          modprobe --first-time bonding
+          echo "DEVICE=eth1\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.1\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth1
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
-          
+          sysctl -p
+          echo "*filter" > /root/iptables.rules
+          echo ":INPUT DROP [0:0]" >> /root/iptables.rules
+          echo ":FORWARD DROP [0:0]" >> /root/iptables.rules
+          echo ":OUTPUT ACCEPT [0:0]" >> /root/iptables.rules
+          echo ":TRAFFIC - [0:0]" >> /root/iptables.rules
+          echo ":SSH-INPUT - [0:0]" >> /root/iptables.rules
+          echo ":SSH-INPUTTWO - [0:0]" >> /root/iptables.rules
+          echo "# TRAFFIC chain for Port Knocking. The correct port sequence in this example is  8881 -> 7777 -> 9991; any other sequence will drop the traffic " >> /root/iptables.rules
+          echo "-A INPUT -j TRAFFIC" >> /root/iptables.rules
+          echo "-A TRAFFIC -p icmp --icmp-type any -j ACCEPT" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state ESTABLISHED,RELATED -j ACCEPT" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp --dport 22 -m recent --rcheck --seconds 30 --name SSH2 -j ACCEPT" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp -m recent --name SSH2 --remove -j DROP" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp --dport 9991 -m recent --rcheck --name SSH1 -j SSH-INPUTTWO" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp -m recent --name SSH1 --remove -j DROP" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp --dport 7777 -m recent --rcheck --name SSH0 -j SSH-INPUT" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp -m recent --name SSH0 --remove -j DROP" >> /root/iptables.rules
+          echo "-A TRAFFIC -m state --state NEW -m tcp -p tcp --dport 8881 -m recent --name SSH0 --set -j DROP" >> /root/iptables.rules
+          echo "-A SSH-INPUT -m recent --name SSH1 --set -j DROP" >> /root/iptables.rules
+          echo "-A SSH-INPUTTWO -m recent --name SSH2 --set -j DROP" >> /root/iptables.rules
+          echo "-A TRAFFIC -j DROP" >> /root/iptables.rules
+          echo "COMMIT" >> /root/iptables.rules
+          echo "# END or further rules" >> /root/iptables.rules
       SHELL
       when "centralRouter"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
+          echo "DEFROUTE=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0 
+          echo "DEVICE=eth1\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.2\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes\nGATEWAY=192.168.255.1\nDEFROUTE=yes" > /etc/sysconfig/network-scripts/ifcfg-eth1
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
-          
+          sysctl -p
+          echo "#!/bin/bash" > /root/knock.sh
+          echo "HOST=$1" >> /root/knock.sh
+          echo "shift" >> /root/knock.sh
+          echo "for ARG in "$@"" >> /root/knock.sh
+          echo "do" >> /root/knock.sh
+          echo "   nmap -Pn --host_timeout 100 --max-retries 0 -p $ARG $HOST" >> /root/knock.sh
+          echo "done" >> /root/knock.sh
+          chmod +x /root/knock.sh
       SHELL
       when "inetRouter2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
-          
+          sysctl -p
       SHELL
     end
   end
