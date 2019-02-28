@@ -12,20 +12,14 @@ MACHINES = {
 :centralRouter => {
   :box_name => "centos/7",
   :net => [
-    {ip: '', adapter: 2, netmask: "", virtualbox__intnet: "router-net"},
-    {ip: '192.168.255.5', adapter: 3, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
+    {ip: '192.168.255.5', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
   ]
 },
 :inetRouter2 => {
   :box_name => "centos/7",
+  :public => {:adapter => 2, use_dhcp_assigned_default_route: true, bridge: "enp4s0"},
   :net => [
-    {ip: '192.168.255.6', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
-    {ip: '192.168.2.1', adapter: 3, netmask: "255.255.255.192", virtualbox__intnet: "dev-net1"},
-    {ip: '192.168.2.65', adapter: 4, netmask: "255.255.255.192", virtualbox__intnet: "testserv-net1"},
-    {ip: '192.168.2.129', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "managers-net1"},
-    {ip: '192.168.2.193', adapter: 6, netmask: "255.255.255.192", virtualbox__intnet: "hw-net1"},
-    {ip: '', adapter: 7, netmask: "", virtualbox__intnet: "testLAN"},
-    {ip: '', adapter: 8, netmask: "", virtualbox__intnet: "testLAN"},
+    {ip: '192.168.255.6', adapter: 3, netmask: "255.255.255.252", virtualbox__intnet: "router-net1"},
   ]
 }
 }
@@ -64,7 +58,6 @@ Vagrant.configure("2") do |config|
           echo "DEVICE=eth2\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.1\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth2
           systemctl restart network
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
-          iptables -t nat -A POSTROUTING ! -d 192.168.0.0/16 -o eth0 -j MASQUERADE
           sysctl -p
           echo "*filter" > /root/iptables.rules
           echo ":INPUT DROP [0:0]" >> /root/iptables.rules
@@ -92,10 +85,12 @@ Vagrant.configure("2") do |config|
       SHELL
       when "centralRouter"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
-          yum install nmap -y
+          yum install epel-release -y
+          yum install nmap nginx net-tools tcpdump -y
           echo "DEFROUTE=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0 
           systemctl restart network
           echo "DEVICE=eth1\nBOOTPROTO=static\nBROADCAST=192.168.255.3\nIPADDR=192.168.255.2\nNETMASK=255.255.255.252\nNETWORK=192.168.255.0\nONBOOT=yes\nGATEWAY=192.168.255.1\nDEFROUTE=yes" > /etc/sysconfig/network-scripts/ifcfg-eth1
+          echo "DEVICE=eth2\nBOOTPROTO=static\nBROADCAST=192.168.255.7\nIPADDR=192.168.255.5\nNETMASK=255.255.255.252\nNETWORK=192.168.255.4\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth2
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           sysctl -p
           echo "#!/bin/bash" > /root/knock.sh
@@ -111,6 +106,10 @@ Vagrant.configure("2") do |config|
         box.vm.provision "shell", run: "always", inline: <<-SHELL
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           sysctl -p
+          #Проброс порта
+          iptables -t nat -A PREROUTING -d 192.168.217.152 -p tcp --dport 8080 -j DNAT --to-destination 192.168.255.6:80
+          iptables -t nat -A POSTROUTING -d 192.168.255.6 -p tcp --dport 80 -j SNAT --to-source 192.168.217.152
+          #iptables -t nat -A POSTROUTING -o eth2 -d 192.168.255.5 -j SNAT --to-source 192.168.255.6
       SHELL
     end
   end
