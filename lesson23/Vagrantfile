@@ -105,10 +105,12 @@ Vagrant.configure("2") do |config|
       when "inetRouter2"
         box.vm.provision "shell", run: "always", inline: <<-SHELL
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+          yum install tcpdump -y
           sysctl -p
           #Проброс порта
-          iptables -t nat -A PREROUTING -d 192.168.217.152 -p tcp --dport 8080 -j DNAT --to-destination 192.168.255.6:80
-          iptables -t nat -A POSTROUTING -d 192.168.255.6 -p tcp --dport 80 -j SNAT --to-source 192.168.217.152
+          iptables -t nat -A PREROUTING -d 192.168.217.153 -p tcp --dport 8080 -j DNAT --to-destination 192.168.255.6:80
+          iptables -t nat -A POSTROUTING -d 192.168.255.6 -p tcp --dport 80 -j SNAT --to-source 192.168.217.153
+          #iptables -t nat -A PREROUTING -p tcp -d 192.168.217.153 --dport 8080 -j DNAT --to-destination 192.168.255.6:80
           #iptables -t nat -A POSTROUTING -o eth2 -d 192.168.255.5 -j SNAT --to-source 192.168.255.6
       SHELL
     end
