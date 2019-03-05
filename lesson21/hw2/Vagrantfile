@@ -96,6 +96,8 @@ Vagrant.configure("2") do |config|
         yes | cp /usr/share/easy-rsa/3/pki/issued/client.crt /vagrant/client/
         yes | cp /usr/share/easy-rsa/3/pki/private/client.key /vagrant/client/
         systemctl start openvpn@server
+        sed -i 's/PasswordAuthentication/#PasswordAuthentication/g' /etc/ssh/sshd_config
+        sed -i 's/PubkeyAuthentication/#PubkeyAuthentication/g' /etc/ssh/sshd_config
         cat "PasswordAuthentication yes" >> /etc/ssh/sshd_config
         cat "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
         systemctl restart sshd
@@ -124,6 +126,7 @@ Vagrant.configure("2") do |config|
         echo "status-version 3" >> /etc/openvpn/client.conf
         echo "log-append openvpn-client.log" >> /etc/openvpn/client.conf
         systemctl start openvpn@client
+        ping -c 10 192.168.0.1
       SHELL
     end
   end
