@@ -93,6 +93,7 @@ Vagrant.configure("2") do |config|
           echo "DEVICE=eth2\nBOOTPROTO=static\nBROADCAST=192.168.255.7\nIPADDR=192.168.255.5\nNETMASK=255.255.255.252\nNETWORK=192.168.255.4\nONBOOT=yes" > /etc/sysconfig/network-scripts/ifcfg-eth2
           echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
           sysctl -p
+          ip r add 192.168.217.0 dev eth1
           echo "#!/bin/bash" > /root/knock.sh
           echo "HOST=\$1" >> /root/knock.sh
           echo "shift" >> /root/knock.sh
